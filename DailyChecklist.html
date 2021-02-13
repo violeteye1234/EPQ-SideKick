@@ -2,11 +2,18 @@
     <head>
         <style>
             .header{
-                border: 3px solid black;
-                height: 16%;
+                display: inline;
+                height: 70px;
                 width: 100%;
-                float: right;
-                margin-top: -10%;
+                margin-top: -20%;
+                font-size: 15px;
+                font-family: 'Florence', cursive;
+                overflow: hidden;
+            }
+            #logo{
+                display: inline-block;
+                border: 1px solid black;
+                margin-top: -2%;
             }
             .tabs{
                 display: block;
@@ -37,10 +44,56 @@
                 margin-left: 88%;
                 margin-top: -28%;
             }
+            .clock{
+			top: 7%;
+			left: 50%;
+			transform: translateX(-50%) translateY(-50%);
+			color: black;
+			font-size: 26px;
+            position: absolute;
+            font-family: 'Bungee Shade', cursive;
+            border: 0.5px solid black;
+            padding: 0px 200px 0px 200px;
+            }
         </style>
+        <div id="MyClockDisplay" class = "clock"></div>
+        <script type="text/javascript">
+            function showTime(){
+                var date = new Date();
+                var h = date.getHours(); //0-23
+                var m = date.getMinutes(); //0-59
+                var s = date.getSeconds(); //0-59
+                var session = "AM";
+
+                if (h == 0){
+                    h = 12;
+                }
+                if (h>12){
+                    h = h - 12;
+                    session = "PM"
+                }
+                if (h == 12 & s>0){
+                    session = "PM"
+                }
+
+                h = (h < 10) ? "0" + h : h;
+                m = (m < 10) ? "0" + m : m;
+                s = (s < 10) ? "0" + s : s;
+
+                var time = h + ":" + m + ":" + s + " " + session; 
+                document.getElementById("MyClockDisplay").innerText = time;
+                document.getElementById("MyClockDisplay").textContent  = time;
+
+                setTimeout(showTime, 1000);
+            }
+            showTime();
+        </script>
     </head>
     <body>
-        <div class = "header"></div>
+        <div class = "header"><center>Hardwork leads to success</center></div>
+        <div id = "logo">
+            <img src = "Logo.png" width = "70" height = "70">
+        </div>
         <div class = "tabs"></div>
         <div class = "calendar"></div>
         <fieldset class="dailyChecklist">
