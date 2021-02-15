@@ -1,6 +1,7 @@
 <html>
     <head>
         <style>
+            /*styling the quotes*/
             .header{
                 display: inline;
                 height: 70px;
@@ -9,51 +10,159 @@
                 font-size: 15px;
                 font-family: 'Florence', cursive;
                 overflow: hidden;
-            }
-            #logo{
-                display: inline-block;
-                border: 1px solid black;
-                margin-top: -2%;
-            }
-            .tabs{
-                display: block;
-                border: 3px solid black;
-                height: 55%;
-                width: 20%;
-                margin-top: 11%;
-            }
-            .calendar{
-                display: block;
-                border: 3px solid black;
-                height: 21%;
-                width: 20%;
-                margin-top: 1%;
-            }
-            .dailyChecklist{
-                border: 3px solid black;
-                height: 79%;
-                width: 60%;
-                margin-left: 22%;
-                margin-top: -45%;
-                font: 2em sans-serif;
-            }
-            .daysLeft{
-                border: 3px solid black;
-                height: 100px;
-                width: 100px;
-                margin-left: 88%;
-                margin-top: -28%;
+                color: #636363;
             }
             .clock{
-			top: 7%;
-			left: 50%;
-			transform: translateX(-50%) translateY(-50%);
-			color: black;
-			font-size: 26px;
-            position: absolute;
-            font-family: 'Bungee Shade', cursive;
-            border: 0.5px solid black;
-            padding: 0px 200px 0px 200px;
+			    top: 7%;
+			    left: 50%;
+			    transform: translateX(-50%) translateY(-50%);
+			    color: black;
+			    font-size: 26px;
+                position: absolute;
+                font-family: 'Bungee Shade', cursive;
+                border: 0.5px solid black;
+                padding: 0px 200px 0px 200px;
+            }
+            /*styling the logo here*/
+            #logo{
+                border: 6px solid black;
+                border-radius: 5px;
+                margin-top: -2%;
+                width: 70px;
+            }
+            /* Style the tab */
+            .tab {
+                margin-top: 2%;
+                float: left;
+                border: 1px solid #ccc;
+                background-color: #f1f1f1;
+                width: 30%;
+                height: 350px;
+            }
+            /* Style the buttons inside the tab */
+            .tab button {
+                display: inline-block;
+                background-color: inherit;
+                color: black;
+                padding: 22px 16px;
+                width: 100%;
+                border: none;
+                outline: none;
+                text-align: left;
+                cursor: pointer;
+                transition: 0.3s;
+                font-size: 17px;
+            }
+            /* Change background color of buttons on hover */
+            .tab button:hover {
+                background-color: #ddd;
+            }
+            /* Create an active/current "tab button" class */
+            .tab button.active {
+                background-color: #ccc;
+            }
+            /* Style the tab content */
+            .tabcontent {
+                margin-top: 2%;
+                margin-left: 1%;
+                float: left;
+                padding: 0px 12px;
+                border: 0.5px solid #ccc;
+                width: 50%;
+                height: 86%;
+            }
+            /*for scrollbar*/
+            /* ::-webkit-scrollbar{
+                width: 12px;
+            }
+            ::-webkit-scrollbar-track{
+                box-shadow: inset 0 0 5px grey;
+                border-radius: 10px;
+            }
+            ::-webkit-scrollbar-thumb {
+                background: #DBF3FA;
+                border-radius: 10px;
+            }
+            ::-webkit-scrollbar-thumb:hover{
+                background: #b30000;
+            } */
+            .calendar{
+                float: left;
+                margin-top: -18%;
+                width: 30.2%;
+                background-color: #dfe6e9;
+                height: 220px;
+                box-shadow: 0px 0px 15px 3px rgba(0, 0, 0, 0.1);
+            }
+            .month{
+                display: flex;
+                justify-content: space-between;
+                text-align: center;
+                width: 100%;
+                height: 30%;
+                background-color: #63c5da;
+                color: #4c0121;
+                padding: 30px 20px;
+                box-sizing: border-box;
+            }
+            h6,h4{
+                margin: 5;
+                font-weight: 500;
+                padding: 0;
+            }
+            h4{
+                margin-top: -15%;
+            }
+            .daysOfWeek{
+                margin: 0;
+                display: flex;
+                background-color: #4aa2b5;
+                color: #4c0121;
+                padding: 3px 0;
+                font-size: small;
+            }
+            .daysOfWeek div {
+                width: 14.28%;
+                text-align: center;
+            }
+            .datesOfMonth{
+                display: flex;
+                flex-wrap: wrap;
+                padding: 6px 0;
+            }
+            .datesOfMonth div{
+                margin-bottom: 6px;
+                width: 14.28%;
+                text-align: center;
+                transition: all 0.4s;
+            }
+            .today{
+                background-color: #add6de;
+                color: brown;
+            }
+            .datesOfMonth div:hover{
+                background-color: #c2cfd1;
+                cursor: pointer;
+            }
+            .prevDate {
+                color: #949b9c;
+            }
+            #month{
+                font-size: 17px;
+            }
+            .previous, .next{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 20px;
+                height: 20px;
+                background-color: #4aa2b5;
+                border-radius: 50%;
+                transition: all 0.4s;
+            }
+            .previous:hover, .next:hover{
+                background-color: #3a8291;
+                cursor: pointer;
             }
         </style>
         <div id="MyClockDisplay" class = "clock"></div>
@@ -73,7 +182,7 @@
                     session = "PM"
                 }
                 if (h == 12 & s>0){
-                    session = "PM"
+                    session = "AM"
                 }
 
                 h = (h < 10) ? "0" + h : h;
@@ -89,16 +198,126 @@
             showTime();
         </script>
     </head>
-    <body>
-        <div class = "header"><center>Hardwork leads to success</center></div>
+    <body onload="renderDates()">
+        <div class = "header"><center><b>Hardwork leads to success</b></center></div>
         <div id = "logo">
             <img src = "Logo.png" width = "70" height = "70">
+        </div> 
+        <div class="tab">
+            <button class="tablinks" onclick="openFeature(event, 'dailyChecklist')" id="defaultOpen"><b>Daily Checklist</b></button>
+            <button class="tablinks" onclick="openFeature(event, 'weeklyChecklist')"><b>Weekly Checklist</b></button>
+            <button class="tablinks" onclick="openFeature(event, 'Calendar')"><b>Calendar</b></button>
+            <button class="tablinks" onclick="openFeature(event, 'Focus')"><b>Focus</b></button>
+            <button class="tablinks" onclick="openFeature(event, 'Exemplars')"><b>Exemplars</b></button>
         </div>
-        <div class = "tabs"></div>
-        <div class = "calendar"></div>
-        <fieldset class="dailyChecklist">
-            <legend>Daily Checklist</legend>
-        </fieldset>
-        <div class = "daysLeft"></div>
+        <div id="dailyChecklist" class="tabcontent">
+            <fieldset>
+                <legend>DailyChecklist
+                <a href = "dailyChecklist.html"></a>
+                </legend>
+            </fieldset>
+        </div>
+        <div id="weeklyChecklist" class="tabcontent">
+            <a href = ""></a>
+        </div>
+        <div id="Calendar" class="tabcontent">
+            <a href = ""></a>
+        </div>
+        <div id = "Focus" class="tabcontent">
+            <a href = ""></a>
+        </div>
+        <div id = "Exemplars" class="tabcontent">
+            <a href = ""></a>
+        </div>
+        <!--calendar.css is linked-->
+        <div class="calendar">
+            <div class = "month">
+                <div class = "previous" onclick = "changeDate('prev')">
+                    <span>&#10094</span>
+                </div>
+                <div>
+                    <h4 id="month">February</h4>
+                    <h6 id="currDate"></h6>
+                </div>
+                <div class = "next" onclick = "changeDate('next')">
+                    <span>&#10095</span>
+                </div>
+            </div>
+            <div class = "daysOfWeek">
+                <div>Sun</div>
+                <div>Mon</div>
+                <div>Tues</div>
+                <div>Wed</div>
+                <div>Thurs</div>
+                <div>Fri</div>
+                <div>Sat</div>
+            </div>
+            <div class = "datesOfMonth">
+            </div>
+        </div>
+        <script>
+            function openFeature(evt, featureName) {
+              var i, tabcontent, tablinks;
+              tabcontent = document.getElementsByClassName("tabcontent");
+              for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+              }
+              tablinks = document.getElementsByClassName("tablinks");
+              for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+              }
+              document.getElementById(featureName).style.display = "block";
+              evt.currentTarget.className += " active";
+            }
+            document.getElementById("defaultOpen").click();
+
+
+            var date = new Date();
+
+            function renderDates(){
+                date.setDate(1);
+                var day = date.getDay();
+                var lastDate = new Date(
+                    date.getFullYear(),
+                    date.getMonth() + 1,
+                    0
+                ).getDate();
+                var prevDate = new Date(
+                    date.getFullYear(),
+                    date.getMonth(),
+                    0
+                ).getDate();
+                    
+                var today = new Date();
+                console.log(today);
+                var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+                document.getElementById("currDate").innerHTML = date.toDateString();
+                document.getElementById("month").innerHTML = months[date.getMonth()]
+
+                var cell = "";
+                for (x = day; x>0; x--){
+                    cell+= "<div class = 'prevDate'>" + (prevDate - x + 1)+ "</div>";
+                }
+                for (i = 1; i <= lastDate; i++){
+                    if (i == today.getDate() && date.getMonth() == today.getMonth()){
+                        cell += "<div class = 'today'>" + i + "</div>"
+                    }
+                    else{
+                        cell += "<div>" + i + "</div>"
+                    }
+                }
+                document.getElementsByClassName("datesOfMonth")[0].innerHTML = cell;
+            }
+            function changeDate(para){
+                if (para == 'prev'){
+                    date.setMonth(date.getMonth() - 1);
+                    renderDates();
+                }
+                else if (para == 'next'){
+                    date.setMonth(date.getMonth() + 1);
+                    renderDates();
+                }
+            }
+        </script>
     </body>
 </html>
