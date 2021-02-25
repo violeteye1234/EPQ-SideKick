@@ -44,7 +44,7 @@
                 display: inline-block;
                 background-color: inherit;
                 color: black;
-                padding: 22px 16px;
+                padding: 34px 16px;
                 width: 100%;
                 border: none;
                 outline: none;
@@ -299,32 +299,10 @@ input {
             <img src = "Logo.png" width = "70" height = "70">
         </div> 
         <div class="tab">
-            <button class="tablinks" onclick="openFeature(event, 'dailyChecklist')" id="defaultOpen"><b>Daily Checklist</b></button>
-            <button class="tablinks" onclick="openFeature(event, 'weeklyChecklist')"><b>Weekly Checklist</b></button>
+            <button class="tablinks" onclick="openFeature(event, 'weeklyChecklist')" id = "defaultOpen"><b>Weekly Checklist</b></button>
             <button class="tablinks" onclick="openFeature(event, 'Calendar')"><b>Calendar</b></button>
             <button class="tablinks" onclick="openFeature(event, 'Focus')"><b>Focus</b></button>
             <button class="tablinks" onclick="openFeature(event, 'Exemplars')"><b>Exemplars</b></button>
-        </div>
-        <div id="dailyChecklist" class="tabcontent">
-            <fieldset>
-                <legend>DailyChecklist
-                <a href = "dailyChecklist.html"></a>
-                </legend>
-                <!--checklist area-->
-                <div id="myDIV" class = "header">
-                    <input type="text" id="myInput" placeholder="Title...">
-                    <span onclick="newElement()" class="addBtn">Add</span>
-                  </div>
-                  
-                  <ul id="myUL">
-                    <li>Hit the gym</li>
-                    <li class="checked">Pay bills</li>
-                    <li>Meet George</li>
-                    <li>Buy eggs</li>
-                    <li>Read a book</li>
-                    <li>Organize office</li>
-                  </ul>
-            </fieldset>
         </div>
         <div id="weeklyChecklist" class="tabcontent">
             <a href = ""></a>
