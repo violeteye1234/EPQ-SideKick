@@ -1,0 +1,12 @@
+.projectType {
+    display: inline-block;
+    width: 20%;
+    height: 200px;
+    border: solid 1px black;
+    margin-left: 3%;
+    border-radius: 5%;
+}
+
+.projectType:hover {
+    color: blue;
+}
