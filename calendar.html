@@ -1,4 +1,33 @@
 <html>
-    <head></head>
-    <body></body>
+    <head>
+        <link rel = "stylesheet" type="text/css" href = "calendar.css">
+        <script type = "text/javascript" src = "calendar.js"></script>
+    </head>
+    <body onload="renderDates()">
+        <div class="calendar">
+            <div class = "month">
+                <div class = "previous" onclick = "changeDate('prev')">
+                    <span>&#10094</span>
+                </div>
+                <div>
+                    <h4 id="month">February</h4>
+                    <h6 id="currDate"></h6>
+                </div>
+                <div class = "next" onclick = "changeDate('next')">
+                    <span>&#10095</span>
+                </div>
+            </div>
+            <div class = "daysOfWeek">
+                <div>Sun</div>
+                <div>Mon</div>
+                <div>Tues</div>
+                <div>Wed</div>
+                <div>Thurs</div>
+                <div>Fri</div>
+                <div>Sat</div>
+            </div>
+            <div class = "datesOfMonth">
+            </div>
+        </div>
+    </body>
 </html>
