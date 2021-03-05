@@ -1,3 +1,7 @@
+body{
+    padding: 0px;
+    margin: 0px;
+}
 .projectType {
     display: inline-block;
     width: 20%;
@@ -9,4 +13,32 @@
 
 .projectType:hover {
     color: blue;
+}
+
+img{
+    display: inline-block;
+    width: 105%;
+    height: 65%;
+    left:10%;
+
+}
+button{
+    float:right;
+    border-radius: 2%;
+}
+.heading{
+    display: inline-block;
+    position: absolute;
+    right: 44.5%;
+    top: 20%;
+    color: white;
+}
+
+.quote{
+    display: inline-block;
+    position: absolute;
+    right: 36%;
+    top: 35%;
+    color: white;
+
 }

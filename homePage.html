@@ -1,13 +1,16 @@
 <html>
     <head>
         <link rel = "stylesheet" type = "text/css" href = "homePage.css">
+        <link rel="stylesheet" type="text/css" href="mtr-datepicker.min.css">
+	    <link rel="stylesheet" type="text/css" href="mtr-datepicker.default-theme.min.css">
         <script type = "text/javascript" src = "homePage.js"></script>
+        <script type="text/javascript" src="mtr-datepicker.min.js"></script>
     </head>
     <body>
         <header> <!--Big Banner-->
-            <img src = ""> <h2><center>EPQ SideKick</center></h2> 
-            <br>
-            <h5><center>"Your Reliable Companion through your EPQ Journey"</center></h5>
+            <img src = "homepageImg3.jpeg"> <h1 class = "heading"><center>EPQ SideKick</center></h1> 
+           
+            <h4 class = "quote"><center>"Your Reliable Companion through your EPQ Journey"</center></h4>
         </header> 
         <!--About This Project-->
         <h2>About This Project</h2>
@@ -21,7 +24,37 @@
             <div class = "projectType">Performance</div>
         </div>
         <h4>Select an appropriate deadline for your project</h4>
-        <iframe src = "deadline.html"></iframe>
+        <form action = "WeeklyChecklist.html" method="GET">
+            <div id="end-mtr-datepicker"></div><button onclick="weekChecklist.html">Submit</button>
+            <script>
+                var config = {
+	                target: 'end-mtr-datepicker',
+                    timepicker: false,
+                    future: true
+                };
+                var endDatePicker = new MtrDatepicker(config);
+                endDatePicker.onChange('date', function() {
+                    var endDatepickerOutput = endDatePicker.toLocaleDateString();
+                    console.log(endDatepickerOutput);
+	        });
+            </script>
+        </form>
+        <h4>Select the starting date of project</h4>
+        <form action = "WeeklyChecklist.html" method="GET">
+            <div id="start-mtr-datepicker"></div>
+            <script>
+                var config = {
+	                target: 'start-mtr-datepicker',
+                    timepicker: false,
+                    future: false
+                };
+                var startDatePicker = new MtrDatepicker(config);
+                startDatePicker.onChange('date', function() {
+                    var startDatepickerOutput = startDatePicker.toLocaleDateString();
+                    console.log(startDatepickerOutput);
+	        });
+            </script>
+        </form>
     </body>
 </html>
 
