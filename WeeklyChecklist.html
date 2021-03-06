@@ -2,13 +2,17 @@
     <head>  
         <link rel = "stylesheet" type = "text/css" href = "WeeklyChecklist.css">
         <script type="text/javascript" src = "WeeklyChecklist.js"></script>
-        <div id="MyClockDisplay" class = "clock"></div>
     </head>
     <body onload="whenLoad()">
-        <div class = "header"><center><b>Hardwork leads to success</b></center></div>
+        <div id="MyClockDisplay" class = "clock"></div>
+        <div class = "header"><center><b>Hardwork leads success</b></center></div>
         <div id = "logo">
             <img src = "Logo.png" width = "70" height = "70">
         </div> 
+        <!--appearance of progress bar:-->
+        <div id = "progressBar">
+            <p id = "progress"></p>
+        </div>
         <div class="tab" >
             <button class="tablinks" onclick="openFeature(event, 'weeklyChecklist')" id = "defaultOpen"><b>Weekly Checklist</b></button>
             <button class="tablinks" onclick="openFeature(event, 'Calendar')"><b>Calendar</b></button>
@@ -36,7 +40,7 @@
             </fieldset>
         </div>
         <div id="Calendar" class="tabcontent">
-            <iframe id = "calendariFrame" src="calendar.html" frameborder="0" scrolling="no"></iframe>
+            <iframe id = "calendariFrame" src="calendar.html" frameborder="0" scrolling="no" height="100%" width="100%"></iframe>
             <script>
                 var csslink = document.createElement("link");
                 csslink.href = "calendar.css";
