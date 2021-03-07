@@ -2,7 +2,7 @@
     width: 100%;
     background-color: #dfe6e9;
     height: 100%;
-    box-shadow: 0px 0px 15px 3px rgba(0, 0, 0, 0.1);
+    box-shadow: 5px 10px 8px #aeaeae;
 }
 .month{
     display: flex;
@@ -10,26 +10,26 @@
     text-align: center;
     width: 100%;
     height: 30%;
-    background-color: #63c5da;
+    background-color: rgba(76, 144, 228, 0.73);
     color: #4c0121;
     padding: 30px 20px;
     box-sizing: border-box;
+    font-size: 25px;
 }
 h6,h4{
     margin: 5;
     font-weight: 500;
     padding: 0;
+    font-size: 30px;
 }
-h4{
-    margin-top: -15%;
-}
+
 .daysOfWeek{
     margin: 0;
     display: flex;
-    background-color: #4aa2b5;
+    background-color: rgba(145, 186, 235, 0.73);
     color: #4c0121;
     padding: 3px 0;
-    font-size: small;
+    font-size: x-large;
 }
 .daysOfWeek div {
     width: 14.28%;
@@ -39,6 +39,7 @@ h4{
     display: flex;
     flex-wrap: wrap;
     padding: 6px 0;
+    font-size: 50px;
 }
 .datesOfMonth div{
     margin-bottom: 6px;
@@ -47,7 +48,7 @@ h4{
     transition: all 0.4s;
 }
 .today{
-    background-color: #add6de;
+    background-color: rgba(198, 216, 238, 0.73);;
     color: brown;
 }
 .datesOfMonth div:hover{
@@ -58,20 +59,21 @@ h4{
     color: #949b9c;
 }
 #month{
-    font-size: 17px;
+    font-size: 48px;
 }
 .previous, .next{
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 20px;
-    height: 20px;
-    background-color: #4aa2b5;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(145, 186, 235, 0.73);
     border-radius: 50%;
     transition: all 0.4s;
+    margin-top: 5%;
 }
 .previous:hover, .next:hover{
-    background-color: #3a8291;
+    background-color: rgba(55, 138, 238, 0.73);
     cursor: pointer;
 } 
 

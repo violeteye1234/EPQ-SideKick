@@ -14,38 +14,49 @@
             <h4 class = "quote"><center>"Your Reliable Companion through your EPQ Journey"</center></h4>
         </header> 
         <!--About This Project-->
-        <h2>About This Project</h2>
+        <h2 style="text-align: center;">About This Project</h2>
         <p class = "Intro">I, Pooja Zenit Shah, in the year of AS, worked on this project with my assessor-Mr.Hu. As I have a great interest in programming and was willing to create something for a good purpose, I decided to work on this project called "EPQ SideKick". This EPQ project's intention is to help other students in regards to their EPQ project with time management. I hope that this website is able to help students facilitate students with their managed time, focusing on academics, EPQ, and extra curricular activities. Through this website, students would not need to stress on their EPQ as much and can focus on the other factors. This project is made using HTML, CSS and JavaScript. These languages took a part in my AS IT syllabus. Through this project, I was able to learn these languages much in depth and not be limited by the specification's requirements.</p>
         <!--User's project-->
-        <h2>About Your Project</h2>
-        <div>
+        <h2 style="text-align: center;">About Your Project</h2>
+        <div style="text-align: center;">
             <div class = "projectType">
-                Dissertion
-                <p class = "projectDetails">"A theoretical written project on any topic presenting an
+                <div style="display: block;">
+                    <h4 class = "projectTitle">Dissertion</h4>
+                    <p class = "projectDetails">"A theoretical written project on any topic presenting an
                     argument, eg research into a biological, historical or environmental issue"-Pearson Edexcel</p>
+                </div>
             </div>
             <div class = "projectType">
-                Investigation/Field Study
-                <p class = "projectDetails">"A practical investigatory project involving the
-                    collection of data, eg a scientific investigation, a geographical study of erosion, a
-                    biological study of pollution, a statistical survey" -Pearson Edexcel</p>
+                <div style="display: block;">
+                    <h4 class = "projectTitle">Investigation/Field Study</h4>
+                    <p class = "projectDetails">"A practical investigatory project involving the
+                        collection of data, eg a scientific investigation, a geographical study of erosion, a
+                        biological study of pollution, a statistical survey" -Pearson Edexcel</p>
+                </div>
             </div>
             <div class = "projectType">
-                Performance
-                <p class = "projectDetails">"Development of practical skills resulting in a performance,
+                <div style="display: block;">
+                    <h4 class = "projectTitle">Performance</h4>
+                    <p class = "projectDetails">"Development of practical skills resulting in a performance,
                     eg performing music, drama, sport"-Pearson Edexcel</p>
+                </div>
             </div>
             <div class = "projectType">
-                Artefact
-                <p class = "projectDetails">"E.g. making a painting or sculpture, designing a piece
-                    of furniture or a garment, creating a website, solving an engineering/construction
-                    problem, producing a piece of graphic design." -Pearson Edexcel</p>
+                <div style="display: block;">
+                    <h4 class = "projectTitle">Artefact</h4>
+                    <p class = "projectDetails">"E.g. making a painting or sculpture, designing a piece
+                        of furniture or a garment, creating a website, solving an engineering/construction
+                        problem, producing a piece of graphic design." -Pearson Edexcel</p>                
+                </div>
+
             </div>
         </div>
-        
-        <h4 class = "date">Select the starting date of project</h4>
+        <br>
+        <br>
+        <br>
+        <h4 class = "date"><center>Select the starting date of project</center></h4>
         <form action = "WeeklyChecklist.html" method="GET">
-            <div id="start-mtr-datepicker"></div>
+            <div id="start-mtr-datepicker" class="datapicker"></div>
             <script>
                 var config = {
 	                target: 'start-mtr-datepicker',
@@ -59,9 +70,11 @@
 	        });
             </script>
         </form>
-        <h4 class = "date">Select an appropriate deadline for your project</h4>
+        <br>
+        <br>
+        <h4 class = "date"><center>Select an appropriate deadline for your project</center></h4>
         <form action = "WeeklyChecklist.html" method="GET">
-            <div id="end-mtr-datepicker"></div> 
+            <div id="end-mtr-datepicker" class="datepicker"></div> 
             <script>
                 var config = {
 	                target: 'end-mtr-datepicker',

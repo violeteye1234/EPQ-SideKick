@@ -7,11 +7,13 @@ body{
 }
 
 .projectType {
-    display: inline-block;
+    display: inline-flex;
+    vertical-align: middle;
     width: 20%;
     height: 200px;
     border: 2px solid rgba(197, 199, 218, 0.52);
-    margin-left: 3%;
+    margin-left: 1%;
+    margin-right: 1%;
     border-radius: 5%;
     text-align: center;
     background-color: rgba(126, 176, 238, 0.5);
@@ -31,18 +33,20 @@ img{
     display: inline-block;
     width: 100%;
     height: 65%;
-    right: 90%;
+    /* right: 90%; */
     background-image:
     linear-gradient(to top, rgba(245, 246, 252, 0.52), rgba(76, 144, 228, 0.73)),
     url('headerImage.jpeg');
     background-size: cover;
-    padding: 20px;
 }
 .heading{
     display: inline-block;
     position: absolute;
-    right: 43.5%;
+    width: 100%;
+    left: 0%;
+    text-align: center;
     top: 20%;
+    font-size: 60px;
     color: rgb(57, 55, 55);
     font-family: serif;
 }
@@ -65,11 +69,13 @@ img{
     transform: translateY(-6px);
     border-color: rgba(231, 232, 244, 0.52);
   }
+  
 .quote{
     display: inline-block;
     position: absolute;
     align-items: center;
-    right: 37%;
+    width: 100%;
+    left: 0%;
     top: 35%;
     color: rgb(57, 55, 55);
     font-family:cursive;
@@ -86,9 +92,16 @@ h2{
     padding-left:2%;
     font-family: serif;
 }
+
+.projectTitle{
+    text-align: center;
+}
+
 .projectDetails{
     font-family: serif;
     font-size: 15px;
+    margin: 5px 5px 5px 5px;
+    text-align: center;
 }
 .date, form{
     display: inline;
@@ -97,22 +110,30 @@ h2{
     color: #373d3f;
 }
 #start-mtr-datepicker{
-    margin-left: 2%;
+    width: 186px;
+    margin:0 auto;
 }
 #end-mtr-datepicker{
-    margin-left: 2%;
+    width: 186px;
+    margin:0 auto;
+}
+.mtr-row{
+    margin: 0 auto;
 }
 #submit{
-    display: inline-block;
-    position: absolute;
+    display: block;
+    text-align: center;
     color: rgb(57, 55, 55);
     text-decoration: none;
     border: 0.5px solid rgb(57, 55, 55);
     padding: .5%;
+    font-size: 26px;
     border-radius: 1000px;
     cursor: pointer;
-    left: 70%;
-    top: 160%;
+    margin: 0 auto;
+    width: 100px;
+    height: 35px;
+    bottom: 20px;
 }
 #submit::before {
     content: '';

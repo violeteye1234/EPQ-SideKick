@@ -1,3 +1,7 @@
+body{
+    background: linear-gradient(to top, rgba(245, 246, 252, 0.52), rgba(76, 144, 228, 0.73));
+
+}
 /*styling the quotes*/
 .header{
     display: inline;
@@ -5,15 +9,15 @@
     width: 100%;
     margin-top: -20%;
     font-size: 15px;
-    font-family: 'Florence', cursive;
+    font-family: cursive;
     overflow: hidden;
-    color: #636363;
+    color: rgb(57, 55, 55);;
 }
 .clock{
     top: 7%;
     left: 50%;
     transform: translateX(-50%) translateY(-50%);
-    color: black;
+    color: rgb(57, 55, 55);
     font-size: 26px;
     position: absolute;
     font-family: 'Bungee Shade', cursive;
@@ -22,7 +26,6 @@
 }
 /*styling the logo here*/
 #logo{
-    border: 6px solid black;
     border-radius: 5px;
     margin-top: -2%;
     width: 70px;
@@ -35,6 +38,8 @@
     background-color: #f1f1f1;
     width: 25%;
     height: 350px;
+    box-shadow: 5px 10px 8px #aeaeae;
+
 }
 /* Style the buttons inside the tab */
 .tab button {
@@ -68,8 +73,8 @@
     width: 66%;
     height: 86%;
 }
-/*for scrollbar*/
-/* ::-webkit-scrollbar{
+/* for scrollbar*/
+::-webkit-scrollbar{
     width: 12px;
 }
 ::-webkit-scrollbar-track{
@@ -77,19 +82,19 @@
     border-radius: 10px;
 }
 ::-webkit-scrollbar-thumb {
-    background: #DBF3FA;
+    background: rgb(57, 56, 56);
     border-radius: 10px;
 }
 ::-webkit-scrollbar-thumb:hover{
-    background: #b30000;
-} */
+    background: #abaaaa;
+}
 .calendar{
     float: left;
     margin-top: -18%;
     width: 25%;
     background-color: #dfe6e9;
     height: 220px;
-    box-shadow: 0px 0px 15px 3px rgba(0, 0, 0, 0.1);
+    box-shadow: 5px 10px 8px #aeaeae;
 }
 .month{
     display: flex;
@@ -97,7 +102,7 @@
     text-align: center;
     width: 100%;
     height: 30%;
-    background-color: #63c5da;
+    background-color: rgba(76, 144, 228, 0.73);
     color: #4c0121;
     padding: 30px 20px;
     box-sizing: border-box;
@@ -113,7 +118,7 @@ h4{
 .daysOfWeek{
     margin: 0;
     display: flex;
-    background-color: #4aa2b5;
+    background-color: rgba(145, 186, 235, 0.73);
     color: #4c0121;
     padding: 3px 0;
     font-size: small;
@@ -134,7 +139,7 @@ h4{
     transition: all 0.4s;
 }
 .today{
-    background-color: #add6de;
+    background-color: rgba(198, 216, 238, 0.73);;
     color: brown;
 }
 .datesOfMonth div:hover{
@@ -153,12 +158,12 @@ h4{
     align-items: center;
     width: 20px;
     height: 20px;
-    background-color: #4aa2b5;
+    background-color: rgba(145, 186, 235, 0.73);
     border-radius: 50%;
     transition: all 0.4s;
 }
 .previous:hover, .next:hover{
-    background-color: #3a8291;
+    background-color: rgba(55, 138, 238, 0.73);
     cursor: pointer;
 }
 
@@ -193,8 +198,8 @@ ul li:hover {
     background: #ddd;
 }
 ul li.checked {
-    background: #888;
-    color: #fff;
+    color: rgb(3, 67, 3);
+    background-color: rgb(67, 147, 67);
     text-decoration: line-through;
 }
 
@@ -245,36 +250,35 @@ input {
     width: 20%;
     background: #d9d9d9;
     color: #555;
-    float: left;
     text-align: center;
     align-items: center;
+    float: left;
     font-size: 16px;
     cursor: pointer;
     transition: 0.3s;
     border-radius: 0;
-    padding: 3px 6px -2px 6px ;
 }
 
 .addBtn:hover {
     background-color: #bbb;
 }
-
-#progressBar{
+#progress {
+    background: rgba(255, 255, 255, 0.708);
+    color: black;
+    width: 0%;
     height: 25px;
-    width: 70%;
-    background: #dbcdbf;
-    border: 1px solid rgba(244, 241, 237, 0);
+    margin: 0px;
+    transition: width 2s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#progressBar {
+    height: 25px;
+    width: 42.5%;
+    background: rgba(76, 144, 228, 0.139);
+    border: 1px solid black;
     margin: 0 auto;
     display: flex;
-    justify-content: flex-start;    
-}
-#progress{
-background: #b36b24;
-color: #555;
-width: 0%;
-height: 25px;
-transition: width 2s;
-display: flex;
-justify-content: center;
-align-items: center;
+    justify-content: flex-start;
 }
