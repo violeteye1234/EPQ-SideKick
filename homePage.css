@@ -2,24 +2,23 @@ body{
     /* background: linear-gradient(to bottom, rgba(245, 246, 252, 0.52), rgba(76, 144, 228, 0.73)); */
     padding: 0px;
     margin: 0px;
-    background-color: rgba(231, 232, 241, 0.52);
-    font-family: serif;
+    background-color: rgb(255, 255, 255 );
+    font-family: sans-serif;
 }
 
 .projectType {
     display: inline-flex;
     vertical-align: middle;
     width: 20%;
-    height: 200px;
-    border: 2px solid rgba(197, 199, 218, 0.52);
+    height: 400px;
+    /* border: 2px solid rgba(197, 199, 218, 0.52); */
     margin-left: 1%;
     margin-right: 1%;
     border-radius: 5%;
     text-align: center;
     background-color: rgba(126, 176, 238, 0.5);
     font-size: 20px;
-    box-shadow: 5px 10px 8px #aeaeae;
-    font-family:serif;
+    box-shadow: 5px 5px 8px #aeaeae;
     color: #4c4c50;
     padding: 0;
 
@@ -29,15 +28,16 @@ body{
     transform: scale(1.1);
 }
 
-img{
+.headings{
     display: inline-block;
     width: 100%;
-    height: 65%;
+    height: 100%;
     /* right: 90%; */
     background-image:
     linear-gradient(to top, rgba(245, 246, 252, 0.52), rgba(76, 144, 228, 0.73)),
     url('headerImage.jpeg');
     background-size: cover;
+
 }
 .heading{
     display: inline-block;
@@ -45,15 +45,14 @@ img{
     width: 100%;
     left: 0%;
     text-align: center;
-    top: 20%;
-    font-size: 60px;
+    top: 25%;
+    font-size: 75px;
     color: rgb(57, 55, 55);
-    font-family: serif;
 }
 .epq{
     display: inline-block;
     position: absolute;
-    left: 80%;
+    left: 78%;
     top: 5%;
     color: rgba(231, 232, 244, 0.52);
     text-decoration: none;
@@ -61,7 +60,6 @@ img{
     width: auto;
     border: 0.5px solid rgba(231, 232, 244, 0.52);
     padding: 10px;
-    font-family: serif;
 }
     
 .epq:hover, .epq:focus {
@@ -76,21 +74,22 @@ img{
     align-items: center;
     width: 100%;
     left: 0%;
-    top: 35%;
+    top: 40%;
     color: rgb(57, 55, 55);
     font-family:cursive;
     text-emphasis: bold;
+    font-size: 30px;
 }
-h2{
-    font-size: 40px;
+#aboutYourProject{
     color: #373D3F;
-    padding: 0px;
+    padding: 50px 0;
     margin: 0.5%;
-    font-family: serif;
+    text-align: center;
+    font-size: 60px;
 }
 .intro{
-    padding-left:2%;
-    font-family: serif;
+    padding: 0.5% 5% 5% 5%;
+   
 }
 
 .projectTitle{
@@ -98,42 +97,42 @@ h2{
 }
 
 .projectDetails{
-    font-family: serif;
     font-size: 15px;
     margin: 5px 5px 5px 5px;
     text-align: center;
 }
-.date, form{
-    display: inline;
-    margin: 2%;
+.date {
+    display: inline-block;
+    width: 100%;
+    /* margin: 2%; */
     font-size: 25px;
     color: #373d3f;
 }
-#start-mtr-datepicker{
-    width: 186px;
-    margin:0 auto;
-}
-#end-mtr-datepicker{
-    width: 186px;
-    margin:0 auto;
+.datepicker{
+    display: inline-block;
+    width: 200px;
+    margin:auto 14%;
 }
 .mtr-row{
-    margin: 0 auto;
+    margin: 0px 30%;
 }
 #submit{
     display: block;
+    align-items: center;
     text-align: center;
     color: rgb(57, 55, 55);
     text-decoration: none;
     border: 0.5px solid rgb(57, 55, 55);
-    padding: .5%;
-    font-size: 26px;
-    border-radius: 1000px;
+    padding: 0.5% 0.5% 1% .5%;
+    font-size: 20px;
+    border-radius: 10%;
     cursor: pointer;
     margin: 0 auto;
     width: 100px;
-    height: 35px;
+    height: 15px;
     bottom: 20px;
+    margin-top: 30px;
+    margin-bottom: 20%;
 }
 #submit::before {
     content: '';
@@ -155,5 +154,66 @@ h2{
     transform: translateY(-6px);
     border-color: rgb(154, 179, 242);
   }
-  
- 
+
+  form{
+      width: 100%;
+  }
+
+
+.Sections{
+    display: inline-block;
+    height: 200px;
+    width: 190px;
+    box-shadow: 5px 5px 8px #aeaeae;
+    margin: 0.5%;
+    border-radius: 10px;
+    align-items: center;
+    text-align: center;
+    color: #373D3F;
+    
+
+}
+.Sections:hover{
+    transform: scale(1.1);
+}
+
+.startSticker, .endSticker{
+    display: inline-block;
+    height: 230px;
+    width: 45%;
+    /* border: solid 1px black; */
+    margin: 2% 2% 1%;
+    border-radius: 10px;
+    align-items: center;
+    text-align: center;
+    color: rgb(57, 55, 55);
+    background-color: rgba(136, 181, 236, 0.5);
+    box-shadow: 5px 5px 8px #aeaeae;
+}
+.startSticker:hover, .endSticker:hover{
+    transform: scale(1.1);
+}
+#weeksAvailable{
+    display: block;
+    height: 40px;
+    width: 98%;
+    border: solid 1px rgba(136, 181, 236, 0.5);
+    border-radius: 10px;
+    align-items: center;
+    text-align: center;
+    margin: 0.5% 1% 1%;
+    color: rgb(123, 125, 124);
+}
+.pTypesImages{
+    height: 200px;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 5% 5% 0 0;
+}
+#planYourProject{
+    color: #373D3F;
+    padding: 20px 0;
+    margin: 0.5%;
+    text-align: center;
+    font-size: 60px;
+}
