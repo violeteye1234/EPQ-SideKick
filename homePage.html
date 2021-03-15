@@ -61,42 +61,56 @@
         <br>
         <div style="background-color: rgb(245, 245, 247); height: 750px;">
             <h2 id = "planYourProject"><center>Plan Your Project</center></h2>
-            <form action = "WeeklyChecklist.html" method="GET" style="display:-ms-inline-grid; width: 100%;">
+            <div style="display:-ms-inline-grid; width: 100%;">
                 <div class = "startSticker">
                     <h4 class = "date">Select the starting date of project </h4>
                     <div id="start-mtr-datepicker" ></div>
-                    <script>
-                        var config = {
-                            target: 'start-mtr-datepicker',
-                            timepicker: false,
-                            future: false
-                        };
-                        var startDatePicker = new MtrDatepicker(config);
-                        startDatePicker.onChange('date', function() {
-                            var startDatepickerOutput = startDatePicker.toLocaleDateString();
-                            console.log(startDatepickerOutput);
-                    });
-                    </script>
                 </div>
                 <div class = "endSticker">
                     <h4 class="date">Select an appropriate deadline for your project</h4> 
                     <div id="end-mtr-datepicker" ></div> 
                     <script>
-                        var config = {
+                        var configStart = {
+                            target: 'start-mtr-datepicker',
+                            timepicker: false,
+                            future: false
+                        };
+                        var startDatePicker = new MtrDatepicker(configStart);
+                        startDatePicker.onChange('date', function() {
+                            var startDatepickerOutput = startDatePicker.toLocaleDateString();
+                            console.log(startDatepickerOutput);
+                            calculateWeeks();
+                        });
+                        var configEnd = {
                             target: 'end-mtr-datepicker',
                             timepicker: false,
                             future: true
                         };
-                        var endDatePicker = new MtrDatepicker(config);
+                        var endDatePicker = new MtrDatepicker(configEnd);
                         endDatePicker.onChange('date', function() {
                             var endDatepickerOutput = endDatePicker.toLocaleDateString();
                             console.log(endDatepickerOutput);
-                    });
+                            calculateWeeks();
+                        });
+                        // calculates & displays no.of weeks
+                        function calculateWeeks(){
+                            var startArray = startDatePicker.toLocaleDateString().split("/"); //[0] = day, [1] = month, [2] = year
+                            var endArray = endDatePicker.toLocaleDateString().split("/");
+                            var splitStartDate = new Date(startArray[2],startArray[1],startArray[0]);
+                            var splitEndDate = new Date(endArray[2],endArray[1],endArray[0]);
+                            var label = document.getElementById("noWeeks");
+
+                            var diff =(splitEndDate.getTime() - splitStartDate.getTime()) / 1000;
+                            diff /= (60 * 60 * 24 * 7);
+                            console.log(diff);
+                            label.innerText = Math.abs(Math.round(diff));
+                        }
                     </script> 
                 </div>
             
             <div id = "weeksAvailable">
-                <h4><center>The number of weeks available:</center></h4>
+                <label><center>The number of weeks available:</center></label>
+                <label id = "noWeeks"> 0 </label>
             </div>
             <div class = "Sections" style="background-color:rgba(181, 205, 235, 0.5);">
                 <h5>Proposal Form</h5>
@@ -118,7 +132,7 @@
             </div>  
             <a id = "submit" href = "weeklyChecklist.html">Submit</a>
         </div>
-        </form>
+        </div>
                 <!--About This Project-->
                 <div style = " margin: 0%;">
                     <h2 style="text-align: center;" >About This Project</h2>
@@ -127,5 +141,5 @@
     </body>
 </html>
 
-
+<!-- action = "WeeklyChecklist.html" method="GET" -->
 <!--your reliable companion through your epq journey-->
