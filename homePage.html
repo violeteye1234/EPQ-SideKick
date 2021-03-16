@@ -107,30 +107,54 @@
                         }
                     </script> 
                 </div>
-            
             <div id = "weeksAvailable">
                 <label><center>The number of weeks available:</center></label>
                 <label id = "noWeeks"> 0 </label>
             </div>
             <div class = "Sections" style="background-color:rgba(181, 205, 235, 0.5);">
-                <h5>Proposal Form</h5>
+                <h6 style = "color: #4c4c50;">Number of weeks to work on:</h6>
+                <h5 style="font-size: larger;"><b>Proposal Form</b></h5>
+                <input type = "number" class = "inputWeeks">
             </div>
             <div class="Sections" style="background-color:rgba(153, 190, 235, 0.5);">
+                <h6 style = "color: #4c4c50;">Number of weeks to work on:</h6>
                 <h5>Research</h5>
+                <input type = "number" class = "inputWeeks">
             </div> 
             <div class="Sections" style="background-color:rgba(115, 169, 233, 0.5);";>
+                <h6 style = "color: #4c4c50;">Number of weeks to work on:</h6>
                 <h5>Plan</h5>
+                <input type = "number" class = "inputWeeks">
             </div> 
             <div class="Sections" style="background-color:rgba(87, 153, 233, 0.571);">
+                <h6 style = "color: #4c4c50;">Number of weeks to work on:</h6>
                 <h5>Action</h5>
+                <input type = "number" class = "inputWeeks">
             </div> 
             <div class="Sections" style="background-color:rgba(51, 131, 228, 0.571);">
+                <h6 style = "color: #4c4c50;">Number of weeks to work on:</h6>
                 <h5>Documentation</h5>
+                <input type = "number" class = "inputWeeks">
             </div> 
             <div class="Sections" style="background-color:rgba(3, 105, 230, 0.571);">
+                <h6 style = "color: #4c4c50;">Number of weeks to work on:</h6>
                 <h5>Presentation</h5>
+                <input type = "number" class = "inputWeeks">
             </div>  
-            <a id = "submit" href = "weeklyChecklist.html">Submit</a>
+            <button onclick="verifyWeeks()"> verify</button>
+            <!-- <a id = "submit" href = "weeklyChecklist.html">Submit</a> -->
+            <script>
+                function verifyWeeks(){
+                    var initialWeeks = document.getElementById("noWeeks").innerText;
+                    var inputWeeks = document.getElementsByClassName("inputWeeks");
+                    var i;
+                    var number = parseInt(0);
+                    for (i = 0; i < inputWeeks.length; i++) {
+                        number += parseInt(inputWeeks[i].value);
+                    }
+                    console.log(number);
+                }
+            </script>
         </div>
         </div>
                 <!--About This Project-->
@@ -143,3 +167,4 @@
 
 <!-- action = "WeeklyChecklist.html" method="GET" -->
 <!--your reliable companion through your epq journey-->
+
