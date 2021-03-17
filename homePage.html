@@ -1,5 +1,6 @@
 <html>
     <head>
+        <meta charset="UTF-8">
         <link rel = "stylesheet" type = "text/css" href = "homePage.css">
         <link rel="stylesheet" type="text/css" href="mtr-datepicker.min.css">
 	    <link rel="stylesheet" type="text/css" href="mtr-datepicker.default-theme.min.css">
@@ -118,27 +119,27 @@
             </div>
             <div class="Sections" style="background-color:rgba(153, 190, 235, 0.5);">
                 <h6 style = "color: #4c4c50;">Number of weeks to work on:</h6>
-                <h5>Research</h5>
+                <h5 style="font-size: larger;">Research</h5>
                 <input type = "number" class = "inputWeeks">
             </div> 
             <div class="Sections" style="background-color:rgba(115, 169, 233, 0.5);";>
                 <h6 style = "color: #4c4c50;">Number of weeks to work on:</h6>
-                <h5>Plan</h5>
+                <h5 style="font-size: larger;">Plan</h5>
                 <input type = "number" class = "inputWeeks">
             </div> 
             <div class="Sections" style="background-color:rgba(87, 153, 233, 0.571);">
                 <h6 style = "color: #4c4c50;">Number of weeks to work on:</h6>
-                <h5>Action</h5>
+                <h5 style="font-size: larger;">Action</h5>
                 <input type = "number" class = "inputWeeks">
             </div> 
             <div class="Sections" style="background-color:rgba(51, 131, 228, 0.571);">
                 <h6 style = "color: #4c4c50;">Number of weeks to work on:</h6>
-                <h5>Documentation</h5>
+                <h5 style="font-size: larger;">Documentation</h5>
                 <input type = "number" class = "inputWeeks">
             </div> 
             <div class="Sections" style="background-color:rgba(3, 105, 230, 0.571);">
                 <h6 style = "color: #4c4c50;">Number of weeks to work on:</h6>
-                <h5>Presentation</h5>
+                <h5 style="font-size: larger;">Presentation</h5>
                 <input type = "number" class = "inputWeeks">
             </div>  
             <button onclick="verifyWeeks()"> verify</button>
@@ -149,19 +150,60 @@
                     var inputWeeks = document.getElementsByClassName("inputWeeks");
                     var i;
                     var number = parseInt(0);
+                    var labelValue  = parseInt(document.getElementById("noWeeks").innerText);
                     for (i = 0; i < inputWeeks.length; i++) {
                         number += parseInt(inputWeeks[i].value);
                     }
                     console.log(number);
+                    if (labelValue != number){
+                        alert("Weeks do not match");
+                    }
+                    else{
+                        submitData();
+                    }
+                }
+                function joinData(){
+                    // var configStart = {
+                    //         target: 'start-mtr-datepicker',
+                    //         timepicker: false,
+                    //         future: false
+                    //     };
+                    // var configEnd = {
+                    //         target: 'end-mtr-datepicker',
+                    //         timepicker: false,
+                    //         future: true
+                    //     };
+                    // var endDatePicker = new MtrDatepicker(configEnd);
+                    // var startDatePicker = new MtrDatepicker(configStart);
+                    // var startArray = startDatePicker.toLocaleDateString().split("/"); //[0] = day, [1] = month, [2] = year
+                    // var endArray = endDatePicker.toLocaleDateString().split("/");
+                    // var splitStartDate = new Date(startArray[2],startArray[1],startArray[0]);
+                    // var splitEndDate = new Date(endArray[2],endArray[1],endArray[0]);
+                    var planData = document.getElementsByClassName("inputWeeks");
+                    var i;
+                    var string = "weeklyChecklist.html?";
+                    titleArray = ["PForm","Research","Plan","Action","Doc","PPT"]
+                    for (i = 0; i < planData.length; i++) {
+                        string += titleArray[i];
+                        string += "=";
+                        string += planData[i].value;
+                        string += "&";
+                    }
+                    console.log(string);
+                    return string;
+                }
+                function submitData(){
+                    window.location.href = joinData();
                 }
             </script>
+
         </div>
         </div>
                 <!--About This Project-->
-                <div style = " margin: 0%;">
+                <!-- <div style = " margin: 0%;">
                     <h2 style="text-align: center;" >About This Project</h2>
                     <p class = "Intro">I, Pooja Zenit Shah, in the year of AS, worked on this project with my assessor-Mr.Hu. As I have a great interest in programming and was willing to create something for a good purpose, I decided to work on this project called "EPQ SideKick". This EPQ project's intention is to help other students in regards to their EPQ project with time management. I hope that this website is able to help students facilitate students with their managed time, focusing on academics, EPQ, and extra curricular activities. Through this website, students would not need to stress on their EPQ as much and can focus on the other factors. This project is made using HTML, CSS and JavaScript. These languages took a part in my AS IT syllabus. Through this project, I was able to learn these languages much in depth and not be limited by the specification's requirements.</p>
-                </div>
+                </div> -->
     </body>
 </html>
 
