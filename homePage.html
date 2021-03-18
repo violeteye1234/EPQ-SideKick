@@ -70,43 +70,7 @@
                 <div class = "endSticker">
                     <h4 class="date">Select an appropriate deadline for your project</h4> 
                     <div id="end-mtr-datepicker" ></div> 
-                    <script>
-                        var configStart = {
-                            target: 'start-mtr-datepicker',
-                            timepicker: false,
-                            future: false
-                        };
-                        var startDatePicker = new MtrDatepicker(configStart);
-                        startDatePicker.onChange('date', function() {
-                            var startDatepickerOutput = startDatePicker.toLocaleDateString();
-                            console.log(startDatepickerOutput);
-                            calculateWeeks();
-                        });
-                        var configEnd = {
-                            target: 'end-mtr-datepicker',
-                            timepicker: false,
-                            future: true
-                        };
-                        var endDatePicker = new MtrDatepicker(configEnd);
-                        endDatePicker.onChange('date', function() {
-                            var endDatepickerOutput = endDatePicker.toLocaleDateString();
-                            console.log(endDatepickerOutput);
-                            calculateWeeks();
-                        });
-                        // calculates & displays no.of weeks
-                        function calculateWeeks(){
-                            var startArray = startDatePicker.toLocaleDateString().split("/"); //[0] = day, [1] = month, [2] = year
-                            var endArray = endDatePicker.toLocaleDateString().split("/");
-                            var splitStartDate = new Date(startArray[2],startArray[1],startArray[0]);
-                            var splitEndDate = new Date(endArray[2],endArray[1],endArray[0]);
-                            var label = document.getElementById("noWeeks");
-
-                            var diff =(splitEndDate.getTime() - splitStartDate.getTime()) / 1000;
-                            diff /= (60 * 60 * 24 * 7);
-                            console.log(diff);
-                            label.innerText = Math.abs(Math.round(diff));
-                        }
-                    </script> 
+                    
                 </div>
             <div id = "weeksAvailable">
                 <label><center>The number of weeks available:</center></label>
@@ -143,8 +107,46 @@
                 <input type = "number" class = "inputWeeks">
             </div>  
             <button onclick="verifyWeeks()"> verify</button>
-            <!-- <a id = "submit" href = "weeklyChecklist.html">Submit</a> -->
             <script>
+                var configStart = {
+                    target: 'start-mtr-datepicker',
+                    timepicker: false,
+                    future: false
+                };
+                var startDatePicker = new MtrDatepicker(configStart);
+                var startDatepickerOutput = "";
+                startDatepickerOutput = startDatePicker.toLocaleDateString();
+                startDatePicker.onChange('date', function() {
+                    startDatepickerOutput = startDatePicker.toLocaleDateString();
+                    console.log(startDatepickerOutput);
+                    calculateWeeks();
+                });
+                var configEnd = {
+                    target: 'end-mtr-datepicker',
+                    timepicker: false,
+                    future: true
+                };
+                var endDatePicker = new MtrDatepicker(configEnd);
+                var endDatepickerOutput = "";
+                endDatepickerOutput = endDatePicker.toLocaleDateString();
+                endDatePicker.onChange('date', function() {
+                    endDatepickerOutput = endDatePicker.toLocaleDateString();
+                    console.log(endDatepickerOutput);
+                    calculateWeeks();
+                });
+                // calculates & displays no.of weeks
+                function calculateWeeks(){
+                    var startArray = startDatePicker.toLocaleDateString().split("/"); //[0] = day, [1] = month, [2] = year
+                    var endArray = endDatePicker.toLocaleDateString().split("/");
+                    var splitStartDate = new Date(startArray[2],startArray[1],startArray[0]);
+                    var splitEndDate = new Date(endArray[2],endArray[1],endArray[0]);
+                    var label = document.getElementById("noWeeks");
+
+                    var diff =(splitEndDate.getTime() - splitStartDate.getTime()) / 1000;
+                    diff /= (60 * 60 * 24 * 7);
+                    console.log(diff);
+                    label.innerText = Math.abs(Math.round(diff));
+                }
                 function verifyWeeks(){
                     var initialWeeks = document.getElementById("noWeeks").innerText;
                     var inputWeeks = document.getElementsByClassName("inputWeeks");
@@ -163,22 +165,6 @@
                     }
                 }
                 function joinData(){
-                    // var configStart = {
-                    //         target: 'start-mtr-datepicker',
-                    //         timepicker: false,
-                    //         future: false
-                    //     };
-                    // var configEnd = {
-                    //         target: 'end-mtr-datepicker',
-                    //         timepicker: false,
-                    //         future: true
-                    //     };
-                    // var endDatePicker = new MtrDatepicker(configEnd);
-                    // var startDatePicker = new MtrDatepicker(configStart);
-                    // var startArray = startDatePicker.toLocaleDateString().split("/"); //[0] = day, [1] = month, [2] = year
-                    // var endArray = endDatePicker.toLocaleDateString().split("/");
-                    // var splitStartDate = new Date(startArray[2],startArray[1],startArray[0]);
-                    // var splitEndDate = new Date(endArray[2],endArray[1],endArray[0]);
                     var planData = document.getElementsByClassName("inputWeeks");
                     var i;
                     var string = "weeklyChecklist.html?";
@@ -189,12 +175,14 @@
                         string += planData[i].value;
                         string += "&";
                     }
+                    string += "startingDate" + "=" + startDatepickerOutput + "&" + "endingDate" + "=" + endDatepickerOutput;
                     console.log(string);
                     return string;
                 }
                 function submitData(){
                     window.location.href = joinData();
                 }
+
             </script>
 
         </div>

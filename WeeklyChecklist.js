@@ -1,5 +1,11 @@
+function getValues(){ 
+  var recievedData = window.location.href
+   console.log(recievedData);
+   
+}
 
 function whenLoad(){
+  getValues();
   showTime();
   date = new Date();
   renderDates();

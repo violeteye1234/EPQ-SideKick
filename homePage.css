@@ -116,57 +116,30 @@ body{
 .mtr-row{
     margin: 0px 30%;
 }
-#submit{
-    display: block;
+button{
+    color: rgba(87, 153, 233, 0.571);
+    width: 50%;
+    height: 30px;
     align-items: center;
-    text-align: center;
-    color: rgb(57, 55, 55);
-    text-decoration: none;
-    border: 0.5px solid rgb(57, 55, 55);
-    padding: 0.5% 0.5% 1% .5%;
-    font-size: 20px;
-    border-radius: 10%;
-    cursor: pointer;
-    margin: 0 auto;
-    width: 100px;
-    height: 15px;
-    bottom: 20px;
-    margin-top: 30px;
-    margin-bottom: 20%;
+    margin: 3% 25% 0% 25%;
+    border-radius: 30px;
+    border: solid 0.5px #d5c7c7;
 }
-#submit::before {
-    content: '';
-      border-radius: 1000px;
-      min-width: calc(300px + 12px);
-      min-height: calc(60px + 12px);
-      border: 6px solid #00FFCB;
-      box-shadow: 0 0 60px rgba(0,255,203,.64);
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      opacity: 0;
-      transition: all .3s ease-in-out 0s;
-    }
-    
-#submit:hover, #submit:focus {
-    color: rgb(154, 179, 242);
-    transform: translateY(-6px);
-    border-color: rgb(154, 179, 242);
-  }
+button:hover{
+    background-color: #94a7ae68;
+    border: solid 0.5px #948b8b;
+}
 
 .Sections{
     display: inline-block;
     height: 200px;
     width: 190px;
-    box-shadow: 5px 5px 8px #aeaeae;
+    box-shadow: 5px 5px 8px #d5c7c7;
     margin: 0.5%;
     border-radius: 10px;
     align-items: center;
     text-align: center;
     color: #373D3F;
-    
-
 }
 .Sections:hover{
     transform: scale(1.1);
@@ -199,12 +172,14 @@ body{
     margin: 0.5% 1% 1%;
     color: rgb(123, 125, 124);
 }
+
 .pTypesImages{
     height: 200px;
     width: 100%;
     object-fit: cover;
     border-radius: 5% 5% 0 0;
 }
+
 #planYourProject{
     color: #373D3F;
     padding: 20px 0;
