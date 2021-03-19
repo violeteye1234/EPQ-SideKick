@@ -1,11 +1,26 @@
-function getValues(){ 
-  var recievedData = window.location.href
-   console.log(recievedData);
-   
-}
 
 function whenLoad(){
-  getValues();
+  var recievedData = window.location.href
+  console.log(recievedData);
+  var separator = recievedData.split("?");
+  var keys_values = separator[1].split("&");
+  var i;
+  var startValue = "";
+  var endValue = "";
+  for (i = 0; i<keys_values.length; i++){
+    var values = keys_values[i].split("=");
+    console.log(values);
+    if (i == 6){
+      startValue = values[1];
+      startValue = startValue.slice(0,10);
+      console.log(startValue);
+    }
+    if (i == 7){
+      endValue = values[1];
+      endValue = endValue.slice(0,10);
+      console.log(endValue);
+    }
+  }
   showTime();
   date = new Date();
   renderDates();
@@ -41,16 +56,17 @@ var slider = document.getElementById("progressBar");
 var progress = document.getElementById("progress");
 
 // Set start and end date
-var endDate = new Date("Mar 1, 2022 10:00:00").getTime();
-var startDate = new Date("Jun 20, 2020, 10:00:00").getTime();
-
+var endDate = new Date(endValue);
+var startDate = new Date(startValue);
+console.log(startDate);
+console.log(endDate);
 // Get todays date and time
-var now = new Date().getTime();
+var now = new Date();
 
 // Find the distance between now and the count down date
 var distanceWhole = endDate - startDate;
 var distanceLeft = endDate - now;
-
+console.log(distanceWhole);
 // Time calculations for minutes and percentage progressed
 var minutesLeft = Math.floor(distanceLeft / (1000 * 60));
 var minutesTotal = Math.floor(distanceWhole / (1000 * 60));

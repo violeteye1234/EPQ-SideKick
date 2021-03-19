@@ -106,7 +106,7 @@
                 <h5 style="font-size: larger;">Presentation</h5>
                 <input type = "number" class = "inputWeeks">
             </div>  
-            <button onclick="verifyWeeks()"> verify</button>
+            <button onclick="verifyWeeks()"> Verify</button>
             <script>
                 var configStart = {
                     target: 'start-mtr-datepicker',
@@ -115,9 +115,9 @@
                 };
                 var startDatePicker = new MtrDatepicker(configStart);
                 var startDatepickerOutput = "";
-                startDatepickerOutput = startDatePicker.toLocaleDateString();
+                startDatepickerOutput = startDatePicker.toISOString();
                 startDatePicker.onChange('date', function() {
-                    startDatepickerOutput = startDatePicker.toLocaleDateString();
+                    startDatepickerOutput = startDatePicker.toISOString();
                     console.log(startDatepickerOutput);
                     calculateWeeks();
                 });
@@ -128,9 +128,9 @@
                 };
                 var endDatePicker = new MtrDatepicker(configEnd);
                 var endDatepickerOutput = "";
-                endDatepickerOutput = endDatePicker.toLocaleDateString();
+                endDatepickerOutput = endDatePicker.toISOString();
                 endDatePicker.onChange('date', function() {
-                    endDatepickerOutput = endDatePicker.toLocaleDateString();
+                    endDatepickerOutput = endDatePicker.toISOString();
                     console.log(endDatepickerOutput);
                     calculateWeeks();
                 });

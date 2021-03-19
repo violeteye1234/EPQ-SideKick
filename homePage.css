@@ -124,6 +124,7 @@ button{
     margin: 3% 25% 0% 25%;
     border-radius: 30px;
     border: solid 0.5px #d5c7c7;
+    font-size: 20px;
 }
 button:hover{
     background-color: #94a7ae68;
