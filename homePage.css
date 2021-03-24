@@ -2,7 +2,7 @@ body{
     /* background: linear-gradient(to bottom, rgba(245, 246, 252, 0.52), rgba(76, 144, 228, 0.73)); */
     padding: 0px;
     margin: 0px;
-    background-color: rgb(255, 255, 255 );
+    background-color: rgb(255, 255, 255);
     font-family: sans-serif;
 }
 
@@ -34,10 +34,10 @@ body{
     height: 100%;
     /* right: 90%; */
     background-image:
-    linear-gradient(to top, rgba(245, 246, 252, 0.52), rgba(76, 144, 228, 0.73)),
+    linear-gradient(to top, rgba(255, 255, 255, 0.803), rgba(46, 103, 172, 0.838)),
     url('headerImage.jpeg');
     background-size: cover;
-
+    border: none;
 }
 .heading{
     display: inline-block;
@@ -136,7 +136,7 @@ button:hover{
     height: 200px;
     width: 190px;
     box-shadow: 5px 5px 8px #d5c7c7;
-    margin: 0.5% 2% 4% 12% ;
+    margin: 0.5% 6% 4% 6% ;
     border-radius: 10px;
     align-items: center;
     text-align: center;
@@ -155,8 +155,9 @@ button:hover{
     align-items: center;
     text-align: center;
     color: rgb(57, 55, 55);
-    background-color: rgba(136, 181, 236, 0.5);
+    background-color: rgba(136, 181, 236, 0.372);
     box-shadow: 5px 5px 8px #aeaeae;
+    vertical-align: top;
 }
 .startSticker:hover, .endSticker:hover{
     transform: scale(1.1);
@@ -165,11 +166,11 @@ button:hover{
     display: block;
     height: 40px;
     width: auto;
-    border: solid 1px rgba(136, 181, 236, 0.5);
+    /* border: solid 1px rgba(136, 181, 236, 0.5); */
     border-radius: 10px;
     align-items: center;
     text-align: center;
-    margin: 13em 7% 2% 7%;
+    margin: 10em 7% 2% 7%;
     color: rgb(123, 125, 124);
 }
 
@@ -183,6 +184,7 @@ button:hover{
 #planYourProject{
     color: #373D3F;
     padding-top: 6%;
+    margin-bottom: 9%;
     text-align: center;
     font-size: 60px;
 }
