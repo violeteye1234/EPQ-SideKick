@@ -131,12 +131,16 @@ h4{
     display: flex;
     flex-wrap: wrap;
     padding: 6px 0;
+    align-items: center;
+    text-align: center;
 }
 .datesOfMonth div{
     margin-bottom: 6px;
     width: 14.28%;
     text-align: center;
     transition: all 0.4s;
+    padding-top: 30px;
+
 }
 .today{
     background-color: rgba(198, 216, 238, 0.73);;
@@ -155,6 +159,7 @@ h4{
 .previous, .next{
     display: flex;
     justify-content: center;
+    margin-top: 0%;
     align-items: center;
     width: 20px;
     height: 20px;
@@ -198,8 +203,8 @@ ul li:hover {
     background: #ddd;
 }
 ul li.checked {
-    color: rgb(3, 67, 3);
-    background-color: rgb(67, 147, 67);
+    color: rgb(134, 22, 245);
+    background-color: rgba(152, 144, 237, 0.66);
     text-decoration: line-through;
 }
 
