@@ -1,0 +1,121 @@
+/* Body background and font */
+body {
+    /* background: #272343; */
+    /* font-family: "Pacifico", cursive; */
+    background-color: rgba(77, 81, 194, 0.262);
+  }
+  
+  /* Countdown timer */
+  .timer {
+    color: white;
+    text-align: center;
+    width: 35%;
+    height: 50%;
+    border: 15px solid white;
+    border-radius: 10rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 65px;
+    margin: 0 auto;
+    margin-top: 20px;
+  }
+  
+  .row {
+    width: 100%;
+  }
+  
+  /* remove the padding on the play button */
+  .btn {
+    padding: 0;
+  }
+  
+  /* play and reset icons */
+  .fa-play,
+  .fa-redo-alt {
+    display: block;
+    color: white;
+    border: 2px solid white;
+    padding: 1rem;
+    text-align: center;
+    align-items: center;
+    margin: 0 auto;
+  }
+  
+  .fa-play:hover,
+  .fa-redo-alt:hover {
+    color: white;
+    border: 2px solid #ffffff;
+    transition: 0.3s ease;
+  }
+  
+  /* Dynamic class */
+  /* Make the message visible */
+  .show_message {
+    display: block;
+    padding: 1rem 0;
+    color: #272343;
+    background: #e3f6f5;
+    border-radius: 0.5rem;
+    transition: 0.5s ease;
+  }
+
+.dropDown{
+  /* margin: 0 auto; */
+  align-items: center;
+  text-align: center;
+  margin-top: 30px;
+}
+#dropdown{
+  border: 7px solid white;
+  border-radius: 45px;
+
+}
+  .justify-content-center{
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    align-items: center;
+  }
+
+  #addBtn{
+    position: relative;
+  }
+
+  .modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+  
+  /* Modal Content */
+  .modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+  }
+  
+  /* The Close Button */
+  .close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }

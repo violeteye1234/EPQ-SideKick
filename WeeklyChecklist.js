@@ -1,14 +1,14 @@
-
+var keys_values = [];
+var i;
+var startValue = "";
+var endValue = "";
 function whenLoad(){
   var recievedData = window.location.href
   console.log(recievedData);
-  var separator = recievedData.split("?");
-  var keys_values = separator[1].split("&");
-  var i;
-  var startValue = "";
-  var endValue = "";
+  var separator = recievedData.split("?"); //url is split by qns mark
+  keys_values = separator[1].split("&"); //url is split by &
   for (i = 0; i<keys_values.length; i++){
-    var values = keys_values[i].split("=");
+    var values = keys_values[i].split("="); //get values by splitting via "="
     console.log(values);
     if (i == 6){
       startValue = values[1];
@@ -74,8 +74,14 @@ var result = Math.floor(((minutesTotal - minutesLeft) / minutesTotal) * 100);
 console.log(result);
 
     setInterval(addFrame(result), 100);
-  
+  template();
 } 
+var session_seconds = "10";
+var session_minutes = 0;
+function template() {
+  document.getElementById("minutes").innerHTML = session_minutes;
+  document.getElementById("seconds").innerHTML = session_seconds;
+}
 
 function showTime(){
   var date = new Date();
@@ -109,6 +115,7 @@ function showTime(){
 function openFeature(evt, featureName) {
   console.log("openFeature");
   var i, tabcontent, tablinks;
+  var tinyCalendar = document.getElementsByClassName("calendar")[0];
   tabcontent = document.getElementsByClassName("tabcontent");
   for (i = 0; i < tabcontent.length; i++) {
     tabcontent[i].style.display = "none";
@@ -119,6 +126,37 @@ function openFeature(evt, featureName) {
   }
   document.getElementById(featureName).style.display = "block";
   evt.currentTarget.className += " active";
+  //to delete tiny calendar when clicked on C.tab
+  if (featureName == 'Calendar'){
+    tinyCalendar.style.display = "none";
+    for (i = 0; i<keys_values.length; i++){
+      var recievedData = window.location.href;
+      var values = keys_values[i].split("="); //get values by splitting via "="
+      
+    }
+  }
+  else{
+    tinyCalendar.style.display = "block";
+  }
+  //send data to focus when clicked on focus tab
+  if (featureName == 'Focus'){
+    var ULTasks = document.getElementById("myUL");
+    var LItasks = document.getElementsByTagName("li");
+    var dropDown = document.getElementById("dropdown");
+    var dropDownLength = dropDown.children.length;
+    var i,j;
+    for ( j = dropDownLength-1; j >= 0; j--){
+      console.log(dropDownLength);
+      dropDown.removeChild(dropDown.children[j]); 
+    }
+    for (i = 0; i < LItasks.length; i++){
+      var option = document.createElement('option');
+      option.innerText = LItasks[i].innerText;
+      // console.log(LItasks[i].innerText);
+      dropDown.appendChild(option);
+      // console.log(dropDown);
+    }
+  }
 }
 
 function newElement() {
@@ -201,3 +239,4 @@ function addFrame(result) {
   }
   console.log("testProgressBar");
 }
+

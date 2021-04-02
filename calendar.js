@@ -19,8 +19,10 @@ function renderDates(){
     document.getElementById("month").innerHTML = months[date.getMonth()]
   
     var cell = "";
+    var count = 0;
     for (x = day; x>0; x--){
         cell+= "<div class = 'prevDate'>" + (prevDate - x + 1)+ "</div>";
+        count = count + 1;
     }
     for (i = 1; i <= lastDate; i++){
         if (i == today.getDate() && date.getMonth() == today.getMonth()){
@@ -31,6 +33,10 @@ function renderDates(){
         }
     }
     document.getElementsByClassName("datesOfMonth")[0].innerHTML = cell;
+    while (count > 0){
+        document.getElementsByClassName('prevDate')[count-1].style.visibility = "hidden";
+        count = count - 1;
+    }
   }
   
 function changeDate(para){

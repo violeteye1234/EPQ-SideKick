@@ -1,35 +1,38 @@
+body{
+    font-family: sans-serif;
+}
 .calendar{
     width: 100%;
-    background-color: #dfe6e9;
+    /* background-color: #dfe6e9; */
     height: 100%;
-    box-shadow: 5px 10px 8px #aeaeae;
+    /* box-shadow: 5px 10px 8px #aeaeae; */
 }
 .month{
     display: flex;
     justify-content: space-between;
     text-align: center;
     width: 100%;
-    height: 30%;
-    background-color: rgba(76, 144, 228, 0.73);
+    height: 18%;
+    background-color: rgba(77, 81, 194, 0.44);
     color: #4c0121;
     padding: 30px 20px;
     box-sizing: border-box;
-    font-size: 25px;
+    font-size: 20px;
 }
 h6,h4{
     margin: 5;
     font-weight: 500;
     padding: 0;
-    font-size: 30px;
+    font-size: 15px;
 }
 
 .daysOfWeek{
     margin: 0;
     display: flex;
-    background-color: rgba(145, 186, 235, 0.73);
+    background-color: rgba(77, 81, 194, 0.44);
     color: #4c0121;
     padding: 3px 0;
-    font-size: x-large;
+    font-size: medium;
 }
 .daysOfWeek div {
     width: 14.28%;
@@ -38,14 +41,20 @@ h6,h4{
 .datesOfMonth{
     display: flex;
     flex-wrap: wrap;
-    padding: 6px 0;
-    font-size: 50px;
+    padding: 2px 0 2px 0;
+    font-size: 25px;
+    vertical-align: middle;
 }
 .datesOfMonth div{
-    margin-bottom: 6px;
-    width: 14.28%;
+    /* margin-bottom: 6px; */
+    width: 103px;
+    height: 40px;
+    margin: 5px 5px 5px 5px;
     text-align: center;
     transition: all 0.4s;
+    border: 0.5px solid black;
+    padding-top: 20px;
+    padding-bottom: 3px;
 }
 .today{
     background-color: rgba(198, 216, 238, 0.73);;
@@ -59,7 +68,7 @@ h6,h4{
     color: #949b9c;
 }
 #month{
-    font-size: 48px;
+    font-size: 28px;
 }
 .previous, .next{
     display: flex;
@@ -67,10 +76,10 @@ h6,h4{
     align-items: center;
     width: 40px;
     height: 40px;
-    background-color: rgba(145, 186, 235, 0.73);
+    background-color: rgba(77, 81, 194, 0.44);
     border-radius: 50%;
     transition: all 0.4s;
-    margin-top: 5%;
+    margin-top: 2%;
 }
 .previous:hover, .next:hover{
     background-color: rgba(55, 138, 238, 0.73);
