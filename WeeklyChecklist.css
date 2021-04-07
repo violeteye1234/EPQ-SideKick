@@ -88,15 +88,23 @@ body{
 ::-webkit-scrollbar-thumb:hover{
     background: #abaaaa;
 }
-.calendar{
+
+#tinyCalendar{
     float: left;
-    margin-top: -18%;
+    margin-top: -220px;
     width: 25%;
     background-color: #dfe6e9;
-    height: 220px;
+    height: 240px;
     box-shadow: 5px 10px 8px #aeaeae;
 }
-.month{
+
+#bigCalendar{
+    width: 100%;
+    background-color: #dfe6e9;
+    height: 100%;
+}
+
+.month.tiny{
     display: flex;
     justify-content: space-between;
     text-align: center;
@@ -107,6 +115,21 @@ body{
     padding: 30px 20px;
     box-sizing: border-box;
 }
+
+.month.big{
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    width: 100%;
+    height: 10%;
+    background-color: rgba(76, 144, 228, 0.73);
+    color: #4c0121;
+    padding: 30px 20px;
+    box-sizing: border-box;
+}
+
+
+
 h6,h4{
     margin: 5;
     font-weight: 500;
@@ -134,6 +157,19 @@ h4{
     align-items: center;
     text-align: center;
 }
+
+.datesOfMonth.big div{
+    /* margin-bottom: 6px; */
+    width: 103px;
+    height: 40px;
+    margin: 5px 5px 5px 5px;
+    text-align: center;
+    transition: all 0.4s;
+    border: 0.5px solid black;
+    padding-top: 20px;
+    padding-bottom: 3px;
+}
+
 .datesOfMonth div{
     margin-bottom: 6px;
     width: 14.28%;

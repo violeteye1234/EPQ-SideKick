@@ -67,14 +67,31 @@
             </fieldset>
         </div>
         <div id="Calendar" class="tabcontent"> <!--bigger calendar-->
-            <iframe id = "calendariFrame" src="calendar.html" frameborder="0" scrolling="no" height="100%" width="100%"></iframe>
-            <script>
-                var csslink = document.createElement("link");
-                csslink.href = "calendar.css";
-                csslink.rel = "stylesheet";
-                csslink.type = "text/css";
-                document.getElementById("calendariFrame").contentDocument.head.appendChild(csslink);
-              </script>
+            <div id="bigCalendar" class="calendar"> <!--Tiny Calendar-->
+                <div class = "month big">
+                    <div class = "previous" onclick = "changeDate('big prev')">
+                        <span>&#10094</span>
+                    </div>
+                    <div>
+                        <h4 id="month">February</h4>
+                        <h6 id="currDate"></h6>
+                    </div>
+                    <div class = "next" onclick = "changeDate('big next')">
+                        <span>&#10095</span>
+                    </div>
+                </div>
+                <div class = "daysOfWeek">
+                    <div>Sun</div>
+                    <div>Mon</div>
+                    <div>Tues</div>
+                    <div>Wed</div>
+                    <div>Thurs</div>
+                    <div>Fri</div>
+                    <div>Sat</div>
+                </div>
+                <div class = "datesOfMonth big">
+                </div>
+            </div>
         </div>
         <div id = "Focus" class="tabcontent">
                   <div class="timer">
@@ -108,18 +125,18 @@
                 </div>
         </div>
         <div id = "Exemplars" class="tabcontent">
-            <a href = ""></a>
+            <iframe src="exemplars.html" style="width: 100%; height: 100%;"></iframe>
         </div>
-        <div class="calendar"> <!--Tiny Calendar-->
-            <div class = "month">
-                <div class = "previous" onclick = "changeDate('prev')">
+        <div id="tinyCalendar" class="calendar"> <!--Tiny Calendar-->
+            <div class = "month tiny">
+                <div class = "previous" onclick = "changeDate('tiny prev')">
                     <span>&#10094</span>
                 </div>
                 <div>
                     <h4 id="month">February</h4>
                     <h6 id="currDate"></h6>
                 </div>
-                <div class = "next" onclick = "changeDate('next')">
+                <div class = "next" onclick = "changeDate('tiny next')">
                     <span>&#10095</span>
                 </div>
             </div>
@@ -132,7 +149,7 @@
                 <div>Fri</div>
                 <div>Sat</div>
             </div>
-            <div class = "datesOfMonth">
+            <div class = "datesOfMonth tiny">
             </div>
         </div>
     </body>

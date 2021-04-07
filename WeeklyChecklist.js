@@ -23,7 +23,7 @@ function whenLoad(){
   }
   showTime();
   date = new Date();
-  renderDates();
+  renderDates('both');
   document.getElementById("defaultOpen").click();
 
   var myNodelist = document.getElementsByTagName("LI");
@@ -115,7 +115,7 @@ function showTime(){
 function openFeature(evt, featureName) {
   console.log("openFeature");
   var i, tabcontent, tablinks;
-  var tinyCalendar = document.getElementsByClassName("calendar")[0];
+  var tinyCalendar = document.getElementById("tinyCalendar");
   tabcontent = document.getElementsByClassName("tabcontent");
   for (i = 0; i < tabcontent.length; i++) {
     tabcontent[i].style.display = "none";
@@ -186,18 +186,20 @@ function newElement() {
   }
 
 function changeDate(para){
-  console.log("date changed "+para);
-  if (para == 'prev'){
+  var identifier = para.split(' ');
+  var cal = identifier[0];
+  var direction = identifier[1];
+  if (direction == 'prev'){
       date.setMonth(date.getMonth() - 1);
-      renderDates();
+      renderDates(cal);
   }
-  else if (para == 'next'){
+  else if (direction == 'next'){
       date.setMonth(date.getMonth() + 1);
-      renderDates();
+      renderDates(cal);
   }
 }
 
-function renderDates(){
+function renderDates(cal){
   console.log("dates render");
   date.setDate(1);
   var day = date.getDay();
@@ -229,7 +231,17 @@ function renderDates(){
           cell += "<div>" + i + "</div>"
       }
   }
-  document.getElementsByClassName("datesOfMonth")[0].innerHTML = cell;
+  if(cal == 'tiny'){
+    document.getElementsByClassName("datesOfMonth tiny")[0].innerHTML = cell;
+  }
+  else if(cal == 'big'){
+    document.getElementsByClassName("datesOfMonth big")[0].innerHTML = cell;
+  }
+  else{
+    document.getElementsByClassName("datesOfMonth tiny")[0].innerHTML = cell;
+    document.getElementsByClassName("datesOfMonth big")[0].innerHTML = cell;
+  }
+
 }
 
 function addFrame(result) {

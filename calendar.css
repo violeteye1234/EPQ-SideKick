@@ -2,9 +2,9 @@ body{
     font-family: sans-serif;
 }
 .calendar{
-    width: 50%;
+    width: 100%;
     /* background-color: #dfe6e9; */
-    height: 50%;
+    height: 80%;
     /* box-shadow: 5px 10px 8px #aeaeae; */
 }
 .month{
@@ -12,7 +12,7 @@ body{
     justify-content: space-between;
     text-align: center;
     width: 100%;
-    height: 18%;
+    height: 25%;
     background-color: rgba(77, 81, 194, 0.44);
     color: #4c0121;
     padding: 30px 20px;
