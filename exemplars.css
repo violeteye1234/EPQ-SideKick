@@ -1,19 +1,30 @@
 body{
     font-family: sans-serif;
 }
-.researchTips{
-    margin-left: 200px;
-    height: 120%;
-    width: 184px;
-    /* overflow: scroll; */
-    overflow-x: scroll;
+.container{
+    white-space: nowrap;
+    overflow-x: auto;
+    display: inline-flex;
+    height: 100%;
 }
- #researchTips{
+.column{
+    /* height: 120%;
+    width: 184px;
+    display: inline-block; */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    white-space: normal;
+}
+.content{
+    overflow-y: auto;
+}
+ .title{
     border: none;
     background-color: white;
     padding: 2% 1%; 
     border-radius: 3px;
-    width: 180px;
+    width: 170px;
 }
 #youtubeLink{
     margin-top: 5px;
@@ -21,17 +32,4 @@ body{
     width: 180px;
     border-radius: 3px;
     border: none;
-}
-#chooseTopic {
-    border: none;
-    background-color: white;
-    padding: 2% 1%; 
-    border-radius: 3px;
-    width: 180px;
-}
-.topic{
-    margin-left: 200px;
-    height: 100%;
-    width: 184px;
-    overflow: scroll;
 }
