@@ -113,7 +113,6 @@ function showTime(){
 }
 
 function openFeature(evt, featureName) {
-  console.log("openFeature");
   var i, tabcontent, tablinks;
   var tinyCalendar = document.getElementById("tinyCalendar");
   tabcontent = document.getElementsByClassName("tabcontent");
@@ -130,7 +129,6 @@ function openFeature(evt, featureName) {
   if (featureName == 'Calendar'){
     tinyCalendar.style.display = "none";
     for (i = 0; i<keys_values.length; i++){
-      var recievedData = window.location.href;
       var values = keys_values[i].split("="); //get values by splitting via "="
       
     }
@@ -200,8 +198,6 @@ function changeDate(para){
 }
 
 function renderDates(cal){
-  console.log("dates render");
-  date.setDate(1);
   var day = date.getDay();
   var lastDate = new Date(
       date.getFullYear(),
@@ -220,29 +216,43 @@ function renderDates(cal){
   document.getElementById("month").innerHTML = months[date.getMonth()]
 
   var cell = "";
-  for (x = day; x>0; x--){
+  var x;
+  var endDate = new Date(endValue);
+  var startDate = new Date(startValue);
+  var weeks = (endDate - startDate) / 1000;
+  weeks /= (60 * 60 * 24 * 7);
+  weeks = Math.abs(Math.round(weeks));
+  console.log(weeks);
+    for (x = day; x>0; x--){
       cell+= "<div class = 'prevDate'>" + (prevDate - x + 1)+ "</div>";
+    }
+    for (i = 1; i <= lastDate; i++){
+      var currentDate = new Date(
+        month = date.getMonth(),
+        year = date.getFullYear(),
+        i
+        ).getDate(); 
+        console.log(date);
+        console.log(currentDate);
+        if (i == today.getDate() && date.getMonth() == today.getMonth()){
+            cell += "<div class = 'today'>" + i + "</div>"
+        }
+        else{
+            cell += "<div>" + i + "</div>"
+        }
+    }
   }
-  for (i = 1; i <= lastDate; i++){
-      if (i == today.getDate() && date.getMonth() == today.getMonth()){
-          cell += "<div class = 'today'>" + i + "</div>"
-      }
-      else{
-          cell += "<div>" + i + "</div>"
-      }
-  }
+  
   if(cal == 'tiny'){
     document.getElementsByClassName("datesOfMonth tiny")[0].innerHTML = cell;
   }
-  else if(cal == 'big'){
+  else if(cal == 'big'){ 
     document.getElementsByClassName("datesOfMonth big")[0].innerHTML = cell;
   }
   else{
     document.getElementsByClassName("datesOfMonth tiny")[0].innerHTML = cell;
     document.getElementsByClassName("datesOfMonth big")[0].innerHTML = cell;
   }
-
-}
 
 function addFrame(result) {
   if (result < 100) {
