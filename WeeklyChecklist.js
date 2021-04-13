@@ -9,7 +9,6 @@ function whenLoad(){
   keys_values = separator[1].split("&"); //url is split by &
   for (i = 0; i<keys_values.length; i++){
     var values = keys_values[i].split("="); //get values by splitting via "="
-    console.log(values);
     if (i == 6){
       startValue = values[1];
       startValue = startValue.slice(0,10);
@@ -66,7 +65,6 @@ var now = new Date();
 // Find the distance between now and the count down date
 var distanceWhole = endDate - startDate;
 var distanceLeft = endDate - now;
-console.log(distanceWhole);
 // Time calculations for minutes and percentage progressed
 var minutesLeft = Math.floor(distanceLeft / (1000 * 60));
 var minutesTotal = Math.floor(distanceWhole / (1000 * 60));
@@ -158,30 +156,30 @@ function openFeature(evt, featureName) {
 }
 
 function newElement() {
-    var li = document.createElement("li");
-    var inputValue = document.getElementById("myInput").value;
-    var t = document.createTextNode(inputValue);
-    li.appendChild(t);
-    if (inputValue === '') {
-      alert("You must write something!");
-    } else {
-      document.getElementById("myUL").appendChild(li);
-    }
-    document.getElementById("myInput").value = "";
+  var li = document.createElement("li");
+  var inputValue = document.getElementById("myInput").value;
+  var t = document.createTextNode(inputValue);
+  li.appendChild(t);
+  if (inputValue === '') {
+    alert("You must write something!");
+  } else {
+    document.getElementById("myUL").appendChild(li);
+  }
+  document.getElementById("myInput").value = "";
+
+  var span = document.createElement("SPAN");
+  var txt = document.createTextNode("\u00D7");
+  span.className = "close";
+  span.appendChild(txt);
+  li.appendChild(span);
   
-    var span = document.createElement("SPAN");
-    var txt = document.createTextNode("\u00D7");
-    span.className = "close";
-    span.appendChild(txt);
-    li.appendChild(span);
-  
-    for (i = 0; i < close.length; i++) {
-      close[i].onclick = function() {
-        var div = this.parentElement;
-        div.style.display = "none";
-      }
+  for (i = 0; i < close.length; i++) {
+    close[i].onclick = function() {
+      var div = this.parentElement;
+      div.style.display = "none";
     }
   }
+}
 
 function changeDate(para){
   var identifier = para.split(' ');
@@ -198,61 +196,92 @@ function changeDate(para){
 }
 
 function renderDates(cal){
-  var day = date.getDay();
+  var day = date.getDay();//get the year, month for this month
   var lastDate = new Date(
       date.getFullYear(),
       date.getMonth() + 1,
       0
-  ).getDate();
+  ).getDate();//get the year,month for last month
   var prevDate = new Date(
       date.getFullYear(),
       date.getMonth(),
       0
   ).getDate(); 
-  var today = new Date();
-  console.log(today);
+  var today = new Date();//get today's date info
   var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
   document.getElementById("currDate").innerHTML = date.toDateString();
   document.getElementById("month").innerHTML = months[date.getMonth()]
-
   var cell = "";
+  var tinyCell = "";
+  var bigCell = "";
   var x;
+  
+  //create startDate and endDate
   var endDate = new Date(endValue);
   var startDate = new Date(startValue);
   var weeks = (endDate - startDate) / 1000;
   weeks /= (60 * 60 * 24 * 7);
   weeks = Math.abs(Math.round(weeks));
   console.log(weeks);
-    for (x = day; x>0; x--){
-      cell+= "<div class = 'prevDate'>" + (prevDate - x + 1)+ "</div>";
+  for (x = day; x>0; x--){
+    cell+= "<div class = 'prevDate'>" + (prevDate - x + 1)+ "</div>";
+  }
+  for (i = 1; i <= lastDate; i++){
+    var currentDate = new Date(
+      month = date.getMonth(),
+      year = date.getFullYear(),
+      i
+    ).getDate();
+    if (i == today.getDate() && date.getMonth() == today.getMonth()){
+        // cell += "<div class = 'today'>" + i + "</div>"
+        
     }
-    for (i = 1; i <= lastDate; i++){
-      var currentDate = new Date(
-        month = date.getMonth(),
-        year = date.getFullYear(),
-        i
-        ).getDate(); 
-        console.log(date);
-        console.log(currentDate);
-        if (i == today.getDate() && date.getMonth() == today.getMonth()){
-            cell += "<div class = 'today'>" + i + "</div>"
+    else{
+        if (cal == 'big'){
+          bigCell += "<div class = 'otherDates'>" + i + "</div>";
+          //compare dates
+          var result = currentDate - startDate;
+          if (result > 0){
+            result = result / 7;
+            
+            for (i = 0; i<keys_values.length; i++){
+              var values = keys_values[i].split("="); //get values by splitting via "="
+              if (i == 0){
+                var pform = values[1];
+                pform = parseInt(values[1]);
+                console.log(pform);
+              }
+              if (i == 7){
+                endValue = values[1];
+                endValue = endValue.slice(0,10);
+                console.log(endValue);
+              }
+            }
+          }
+        }
+        else if (cal == 'tiny'){
+          tinyCell += "<div>" + i + "</div>";
         }
         else{
-            cell += "<div>" + i + "</div>"
+          bigCell += "<div class = 'otherDates'>" + i + "</div>";
+          tinyCell += "<div>" + i + "</div>";
+          console.log(keys_values);
+
         }
     }
   }
   
   if(cal == 'tiny'){
-    document.getElementsByClassName("datesOfMonth tiny")[0].innerHTML = cell;
+    document.getElementsByClassName("datesOfMonth tiny")[0].innerHTML = tinyCell;
   }
   else if(cal == 'big'){ 
-    document.getElementsByClassName("datesOfMonth big")[0].innerHTML = cell;
+    document.getElementsByClassName("datesOfMonth big")[0].innerHTML = bigCell;
   }
   else{
-    document.getElementsByClassName("datesOfMonth tiny")[0].innerHTML = cell;
-    document.getElementsByClassName("datesOfMonth big")[0].innerHTML = cell;
+    document.getElementsByClassName("datesOfMonth tiny")[0].innerHTML = tinyCell;
+    document.getElementsByClassName("datesOfMonth big")[0].innerHTML = bigCell;
   }
+}
 
 function addFrame(result) {
   if (result < 100) {
