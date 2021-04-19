@@ -1,30 +1,35 @@
-var keys_values = [];
-var i;
-var startValue = "";
-var endValue = "";
+const PHASE_NUMBER = 6;//how many phases in an EPQ project
+var keys_values = [];  
+var startValue = "";   //starting date value
+var endValue = "";    //ending date value
+displayDate = new Date();   //the displaying date for calendar
+
+/*
+things to do after all HTML elements are loaded
+*/
 function whenLoad(){
-  var recievedData = window.location.href
+  var recievedData = window.location.href;
   console.log(recievedData);
   var separator = recievedData.split("?"); //url is split by qns mark
   keys_values = separator[1].split("&"); //url is split by &
+  var i;
   for (i = 0; i<keys_values.length; i++){
     var values = keys_values[i].split("="); //get values by splitting via "="
     if (i == 6){
       startValue = values[1];
       startValue = startValue.slice(0,10);
-      console.log(startValue);
     }
     if (i == 7){
       endValue = values[1];
       endValue = endValue.slice(0,10);
-      console.log(endValue);
     }
   }
   showTime();
-  date = new Date();
-  renderDates('both');
+  //display dates for both tiny and big calendar
+  renderDates('tiny big');
+  
+  //open the default sidebar
   document.getElementById("defaultOpen").click();
-
   var myNodelist = document.getElementsByTagName("LI");
   var i;
   for (i = 0; i < myNodelist.length; i++) {
@@ -33,7 +38,7 @@ function whenLoad(){
     span.className = "close";
     span.appendChild(txt);
     myNodelist[i].appendChild(span);
-}
+  }
   close = document.getElementsByClassName("close");
   var i;
   for (i = 0; i < close.length; i++) {
@@ -50,37 +55,40 @@ function whenLoad(){
       }
   }, false);
 
-  //progress bar:
-var slider = document.getElementById("progressBar");
-var progress = document.getElementById("progress");
+  //set the progress for progress bar:
+  var slider = document.getElementById("progressBar");
+  var progress = document.getElementById("progress");
+  var endDate = new Date(endValue);
+  var startDate = new Date(startValue);
+  var now = new Date();
 
-// Set start and end date
-var endDate = new Date(endValue);
-var startDate = new Date(startValue);
-console.log(startDate);
-console.log(endDate);
-// Get todays date and time
-var now = new Date();
+  // Find the distance between now and the count down date
+  var distanceWhole = endDate - startDate;
+  var distanceLeft = endDate - now;
+  // Time calculations for minutes and percentage progressed
+  var minutesLeft = Math.floor(distanceLeft / (1000 * 60));
+  var minutesTotal = Math.floor(distanceWhole / (1000 * 60));
+  var result = Math.floor(((minutesTotal - minutesLeft) / minutesTotal) * 100);
+  console.log(result);
 
-// Find the distance between now and the count down date
-var distanceWhole = endDate - startDate;
-var distanceLeft = endDate - now;
-// Time calculations for minutes and percentage progressed
-var minutesLeft = Math.floor(distanceLeft / (1000 * 60));
-var minutesTotal = Math.floor(distanceWhole / (1000 * 60));
-var result = Math.floor(((minutesTotal - minutesLeft) / minutesTotal) * 100);
-console.log(result);
-
-    setInterval(addFrame(result), 100);
+  setInterval(addFrame(result), 100);
   template();
-} 
+}
+
+
 var session_seconds = "10";
 var session_minutes = 0;
+
+
+
 function template() {
   document.getElementById("minutes").innerHTML = session_minutes;
   document.getElementById("seconds").innerHTML = session_seconds;
 }
 
+/*
+  show the clock
+*/
 function showTime(){
   var date = new Date();
   var h = date.getHours(); //0-23
@@ -88,28 +96,20 @@ function showTime(){
   var s = date.getSeconds(); //0-59
   var session = "AM";
 
-  if (h == 0){
-      h = 12;
-  }
-  if (h>12){
-      h = h - 12;
-      session = "PM"
-  }
-  if (h == 12 & s>0){
-      session = "AM"
-  }
-
   h = (h < 10) ? "0" + h : h;
   m = (m < 10) ? "0" + m : m;
   s = (s < 10) ? "0" + s : s;
 
-  var time = h + ":" + m + ":" + s + " " + session; 
+  var time = h + ":" + m + ":" + s + " "; 
   document.getElementById("MyClockDisplay").innerText = time;
   document.getElementById("MyClockDisplay").textContent  = time;
 
   setTimeout(showTime, 1000);
 }
 
+/*
+ display the sidebar
+*/
 function openFeature(evt, featureName) {
   var i, tabcontent, tablinks;
   var tinyCalendar = document.getElementById("tinyCalendar");
@@ -128,7 +128,6 @@ function openFeature(evt, featureName) {
     tinyCalendar.style.display = "none";
     for (i = 0; i<keys_values.length; i++){
       var values = keys_values[i].split("="); //get values by splitting via "="
-      
     }
   }
   else{
@@ -155,6 +154,9 @@ function openFeature(evt, featureName) {
   }
 }
 
+/*
+  input events
+*/
 function newElement() {
   var li = document.createElement("li");
   var inputValue = document.getElementById("myInput").value;
@@ -181,107 +183,143 @@ function newElement() {
   }
 }
 
+
 function changeDate(para){
   var identifier = para.split(' ');
   var cal = identifier[0];
+  console.log(cal);
   var direction = identifier[1];
+  console.log('change');
   if (direction == 'prev'){
-      date.setMonth(date.getMonth() - 1);
+      displayDate.setMonth(displayDate.getMonth() - 1);
       renderDates(cal);
   }
   else if (direction == 'next'){
-      date.setMonth(date.getMonth() + 1);
+    displayDate.setMonth(displayDate.getMonth() + 1);
       renderDates(cal);
   }
 }
 
 function renderDates(cal){
-  var day = date.getDay();//get the year, month for this month
+  displayDate.setDate(1);
+  var currentDay = displayDate.getDay();
+  var currentMonth = displayDate.getMonth();
+  var currentYear = displayDate.getFullYear();
+  //set boundaries for this month
   var lastDate = new Date(
-      date.getFullYear(),
-      date.getMonth() + 1,
+    currentYear,
+    currentMonth + 1,
       0
-  ).getDate();//get the year,month for last month
+  ).getDate();
   var prevDate = new Date(
-      date.getFullYear(),
-      date.getMonth(),
+    currentYear,
+    currentMonth,
       0
-  ).getDate(); 
-  var today = new Date();//get today's date info
+  ).getDate();
+  //display calendar
   var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
-  document.getElementById("currDate").innerHTML = date.toDateString();
-  document.getElementById("month").innerHTML = months[date.getMonth()]
-  var cell = "";
-  var tinyCell = "";
-  var bigCell = "";
-  var x;
   
-  //create startDate and endDate
-  var endDate = new Date(endValue);
-  var startDate = new Date(startValue);
-  var weeks = (endDate - startDate) / 1000;
-  weeks /= (60 * 60 * 24 * 7);
-  weeks = Math.abs(Math.round(weeks));
-  console.log(weeks);
-  for (x = day; x>0; x--){
-    cell+= "<div class = 'prevDate'>" + (prevDate - x + 1)+ "</div>";
+  if(cal.includes('big')){
+    createBigCalendarDays(prevDate,lastDate,displayDate,currentDay,currentMonth,currentYear);
+    console.log(currentMonth);
+    document.getElementById("bigMonth").innerHTML = months[currentMonth]
   }
-  for (i = 1; i <= lastDate; i++){
-    var currentDate = new Date(
-      month = date.getMonth(),
-      year = date.getFullYear(),
-      i
-    ).getDate();
-    if (i == today.getDate() && date.getMonth() == today.getMonth()){
-        // cell += "<div class = 'today'>" + i + "</div>"
-        
-    }
-    else{
-        if (cal == 'big'){
-          bigCell += "<div class = 'otherDates'>" + i + "</div>";
-          //compare dates
-          var result = currentDate - startDate;
-          if (result > 0){
-            result = result / 7;
-            
-            for (i = 0; i<keys_values.length; i++){
-              var values = keys_values[i].split("="); //get values by splitting via "="
-              if (i == 0){
-                var pform = values[1];
-                pform = parseInt(values[1]);
-                console.log(pform);
-              }
-              if (i == 7){
-                endValue = values[1];
-                endValue = endValue.slice(0,10);
-                console.log(endValue);
-              }
-            }
-          }
-        }
-        else if (cal == 'tiny'){
-          tinyCell += "<div>" + i + "</div>";
-        }
-        else{
-          bigCell += "<div class = 'otherDates'>" + i + "</div>";
-          tinyCell += "<div>" + i + "</div>";
-          console.log(keys_values);
-
-        }
-    }
-  }
-  
-  if(cal == 'tiny'){
-    document.getElementsByClassName("datesOfMonth tiny")[0].innerHTML = tinyCell;
-  }
-  else if(cal == 'big'){ 
-    document.getElementsByClassName("datesOfMonth big")[0].innerHTML = bigCell;
-  }
-  else{
-    document.getElementsByClassName("datesOfMonth tiny")[0].innerHTML = tinyCell;
-    document.getElementsByClassName("datesOfMonth big")[0].innerHTML = bigCell;
+  if(cal.includes('tiny')){
+    createTinyCalendarDays(prevDate,lastDate,displayDate,currentDay);
+    document.getElementById("tinyMonth").innerHTML = months[currentMonth]
   }
 }
+
+function createBigCalendarDays(prevDate,lastDate,displayDate,currentDay,currentMonth,currentYear){
+  // create startDate and endDate
+  var endDate = new Date(endValue);
+  var startDate = new Date(startValue);
+  var totalWeeks = (endDate - startDate) / 1000;
+  totalWeeks /= (60 * 60 * 24 * 7);
+  totalWeeks = Math.abs(Math.round(totalWeeks));
+  var weekNumbers = new Array();
+  for(var i=0;i<PHASE_NUMBER;i++){
+      var values = keys_values[i].split("=");
+      weekNumbers[i] = parseInt(values[1]);
+  }
+  var cell = "";
+  var count = 0;
+  var today = new Date();
+  //create dates in the previous month
+  for (x = currentDay; x>0; x--){
+      cell+= "<div class = 'prevDate'>" + (prevDate - x + 1)+ "</div>";
+      count = count + 1;
+  }
+  //create the dates in this month
+  for (i = 1; i <= lastDate; i++){
+      if (i == today.getDate() && displayDate.getMonth() == today.getMonth()){
+          cell += "<div class = 'today'>" + i + "</div>"
+      }
+      else{
+          //create a date
+          var newDate = new Date();
+          newDate.setDate(i);
+          newDate.setMonth(currentMonth);
+          newDate.setFullYear(currentYear);
+          newDate.setHours(0);
+          newDate.setMinutes(0);
+          newDate.setSeconds(0);
+          //compare with weeks
+          var difference = Math.round((newDate - startDate)/(60 * 60 * 24 * 7 * 1000));
+          var phase = "";
+          if(difference<=totalWeeks){
+            //get the number in the keys_values
+            var  m = PHASE_NUMBER;
+            while(m>0){
+              var values = keys_values[m-1].split("=");//get values by splitting via "="
+              var weeksForPhase = weekNumbers[m-1];
+              if(difference>=weeksForPhase){
+                  var phase = values[0];
+                  var phaseNumber = values[1];
+                  break;
+              }
+              m--;
+            }
+          }
+          //add class
+          if(phase.length == 0){
+            cell += "<div>" + i + "</div>"
+          }else{
+            cell += "<div" + " class='" + phase + "'" + ">" + i + "</div>"
+          }
+      }
+  }
+  document.getElementsByClassName("datesOfMonth big")[0].innerHTML = cell;
+  while (count > 0){
+      document.getElementsByClassName('prevDate')[count-1].style.visibility = "hidden";
+      count = count - 1;
+  }
+}
+
+function createTinyCalendarDays(prevDate,lastDate,displayDate,currentDay){
+    var cell = "";
+    var count = 0;
+    var today = new Date();
+    for (x = currentDay; x>0; x--){
+        cell+= "<div class = 'prevDate'>" + (prevDate - x + 1)+ "</div>";
+        count = count + 1;
+    }
+    for (i = 1; i <= lastDate; i++){
+        if (i == today.getDate() && displayDate.getMonth() == today.getMonth()){
+            console.log("sssss-"+i+"/"+displayDate.getMonth()+"/"+today.getMonth());
+            cell += "<div class = 'today'>" + i + "</div>"
+        }
+        else{
+            cell += "<div>" + i + "</div>"
+        }
+    }
+    document.getElementsByClassName("datesOfMonth tiny")[0].innerHTML = cell;
+    while (count > 0){
+        document.getElementsByClassName('prevDate')[count-1].style.visibility = "hidden";
+        count = count - 1;
+    }
+}
+
 
 function addFrame(result) {
   if (result < 100) {

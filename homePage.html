@@ -177,10 +177,12 @@
                     var i;
                     var string = "weeklyChecklist.html?";
                     titleArray = ["PForm","Research","Plan","Action","Doc","PPT"]
+                    sum = 0;
                     for (i = 0; i < planData.length; i++) {
                         string += titleArray[i];
                         string += "=";
-                        string += planData[i].value;
+                        sum += parseInt(planData[i].value);
+                        string += sum;
                         string += "&";
                     }
                     string += "startingDate" + "=" + startDatepickerOutput + "&" + "endingDate" + "=" + endDatepickerOutput;

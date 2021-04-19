@@ -66,12 +66,12 @@ body{
 /* Style the tab content */
 .tabcontent {
     margin-top: 2%;
-    margin-left: 1%;
+    margin-left: 2%;
     float: left;
     padding: 0px 12px;
     border: 0.5px solid #ccc;
-    width: 66%;
-    height: 86%;
+    width: 68%;
+    height: 87%;
 }
 /* for scrollbar*/
 ::-webkit-scrollbar{
@@ -91,8 +91,8 @@ body{
 
 #tinyCalendar{
     float: left;
-    margin-top: -220px;
-    width: 25%;
+    width: 100%;
+    margin-top: 10px;
     background-color: #dfe6e9;
     height: 240px;
     box-shadow: 5px 10px 8px #aeaeae;
@@ -148,6 +148,8 @@ h4{
 }
 .daysOfWeek div {
     width: 14.28%;
+    border-width: 1px;
+    border-color: red;
     text-align: center;
 }
 .datesOfMonth{
@@ -160,9 +162,9 @@ h4{
 
 .datesOfMonth.big div{
     /* margin-bottom: 6px; */
-    width: 103px;
+    width: 13.8%;
     height: 40px;
-    margin: 5px 5px 5px 5px;
+    margin: 0.1% 0.1% 0.1% 0.1%;
     text-align: center;
     transition: all 0.4s;
     border: 0.5px solid black;
@@ -190,6 +192,15 @@ h4{
 #month{
     font-size: 17px;
 }
+
+#bigMonth{
+    font-size: 30px;
+}
+
+#tinyMonth{
+    font-size: 20px;
+}
+
 .previous, .next{
     display: flex;
     justify-content: center;
@@ -318,6 +329,32 @@ input {
     background: rgba(76, 144, 228, 0.139);
     border: 1px solid black;
     margin: 0 auto;
+    margin-top: 35px;
     display: flex;
     justify-content: flex-start;
+}
+
+
+.PForm{
+    background-color: #fcb5e08c;
+}
+
+.Research{
+    background-color: #7adcd27e;
+}
+
+.Plan{
+    background-color: #b679e882;
+}
+
+.Action{
+    background-color: #ee37a58e;
+}
+
+.Doc{
+    background-color: #19a09593;
+}
+
+.PPT{
+    background-color: #9234dea7;
 }
