@@ -5,7 +5,41 @@ body{
     background-color: rgb(255, 255, 255);
     font-family: sans-serif;
 }
-
+.fade-in-text {
+    display: inline-block;
+    font-family: Arial, Helvetica, sans-serif;
+    color: black;
+    animation: fadeIn linear 4s;
+    -webkit-animation: fadeIn linear 7s;
+    -moz-animation: fadeIn linear 7s;
+    -o-animation: fadeIn linear 7s;
+    -ms-animation: fadeIn linear 7s;
+  }
+  
+  @keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+  }
+  
+  @-moz-keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+  }
+  
+  @-webkit-keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+  }
+  
+  @-o-keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+  }
+  
+  @-ms-keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+  }
 .projectType {
     display: inline-flex;
     vertical-align: middle;
@@ -39,7 +73,7 @@ body{
     background-size: cover;
     border: none;
 }
-.heading{
+#heading{
     display: inline-block;
     position: absolute;
     width: 100%;
@@ -49,7 +83,7 @@ body{
     font-size: 75px;
     color: rgb(57, 55, 55);
 }
-.epq{
+#epq{
     display: inline-block;
     position: absolute;
     left: 78%;
@@ -62,13 +96,13 @@ body{
     padding: 10px;
 }
     
-.epq:hover, .epq:focus {
+#epq:hover, #epq:focus {
     color: rgba(231, 232, 244, 0.52);
     transform: translateY(-6px);
     border-color: rgba(231, 232, 244, 0.52);
   }
   
-.quote{
+#quote{
     display: inline-block;
     position: absolute;
     align-items: center;
@@ -79,6 +113,23 @@ body{
     font-family:cursive;
     text-emphasis: bold;
     font-size: 30px;
+}
+#arrow{
+    /* display: inline-block;
+    float: right;
+    align-items: center;
+    top: 80%;
+    color:rgba(132, 132, 136, 0.598);
+    font-size: 90px; */
+    display: inline;
+    position: absolute;
+    align-items: center;
+    left: 47%;
+    top: 73%;
+    color: rgb(162, 162, 162);
+    font-family:cursive;
+    text-emphasis: bold;
+    font-size: 70px;
 }
 #aboutYourProject{
     color: #373D3F;

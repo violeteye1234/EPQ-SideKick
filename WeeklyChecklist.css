@@ -1,8 +1,9 @@
 body{
     background: linear-gradient(to top, rgba(245, 246, 252, 0.52), rgba(76, 144, 228, 0.73));
-
+    /* background-color: white; */
 }
 /*styling the quotes*/
+
 .header{
     display: inline;
     height: 70px;
@@ -329,7 +330,7 @@ input {
     background: rgba(76, 144, 228, 0.139);
     border: 1px solid black;
     margin: 0 auto;
-    margin-top: 35px;
+    margin-top: 14px;
     display: flex;
     justify-content: flex-start;
 }
