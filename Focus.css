@@ -2,16 +2,17 @@
 body {
     /* background: #272343; */
     /* font-family: "Pacifico", cursive; */
-    background-color: rgba(77, 81, 194, 0.262);
+    /* background-color: rgba(77, 81, 194, 0.262); */
+    background-color: #f5f3f39e;
   }
   
   /* Countdown timer */
   .timer {
-    color: white;
+    color:#87bbe8;
     text-align: center;
     width: 35%;
     height: 50%;
-    border: 15px solid white;
+    border: 15px solid rgba(199, 212, 240, 0.879);
     border-radius: 10rem;
     display: flex;
     justify-content: center;
@@ -34,8 +35,8 @@ body {
   .fa-play,
   .fa-redo-alt {
     display: block;
-    color: white;
-    border: 2px solid white;
+    color: rgba(140, 172, 242, 0.879);
+    border: 2px solid rgba(199, 212, 240, 0.879);
     padding: 1rem;
     text-align: center;
     align-items: center;
@@ -44,8 +45,8 @@ body {
   
   .fa-play:hover,
   .fa-redo-alt:hover {
-    color: white;
-    border: 2px solid #ffffff;
+    color: rgba(140, 172, 242, 0.879);
+    border: 2px solid rgba(140, 172, 242, 0.879);
     transition: 0.3s ease;
   }
   
@@ -54,8 +55,8 @@ body {
   .show_message {
     display: block;
     padding: 1rem 0;
-    color: #272343;
-    background: #e3f6f5;
+    color: #4c0121;
+    background: rgba(140, 172, 242, 0.879);
     border-radius: 0.5rem;
     transition: 0.5s ease;
   }
@@ -67,7 +68,7 @@ body {
   margin-top: 30px;
 }
 #dropdown{
-  border: 7px solid white;
+  border: 7px solid rgba(140, 172, 242, 0.879);
   border-radius: 45px;
 
 }
@@ -98,7 +99,7 @@ body {
   
   /* Modal Content */
   .modal-content {
-    background-color: #fefefe;
+    background-color: #af1212;
     margin: auto;
     padding: 20px;
     border: 1px solid #888;
@@ -107,7 +108,7 @@ body {
   
   /* The Close Button */
   .close {
-    color: #aaaaaa;
+    color: #520c0c;
     float: right;
     font-size: 28px;
     font-weight: bold;

@@ -1,42 +1,52 @@
 body{
-    background: linear-gradient(to top, rgba(245, 246, 252, 0.52), rgba(76, 144, 228, 0.73));
-    /* background-color: white; */
+    /* background: linear-gradient(to top, rgba(245, 246, 252, 0.52), rgba(76, 144, 228, 0.73)); */
+    background-color: rgb(196, 193, 193);
+    margin: 0;
+    padding: 0%;
 }
 /*styling the quotes*/
-
 .header{
-    display: inline;
-    height: 70px;
+    display: inline-block;
+    width: 55%;
+    height: 5%;
+}
+.logo{
+    display: inline-block;
+    width: 25%;
+}
+.motto{
+    display: block;
     width: 100%;
-    margin-top: -20%;
+    margin-top: 2%;
     font-size: 15px;
     font-family: cursive;
     overflow: hidden;
-    color: rgb(57, 55, 55);;
+    color: #4c0121;
 }
 .clock{
-    top: 7%;
-    left: 50%;
-    transform: translateX(-50%) translateY(-50%);
-    color: rgb(57, 55, 55);
+    display: block;
+    color: #4c0121;
     font-size: 26px;
-    position: absolute;
+    width: 30%;
     font-family: 'Bungee Shade', cursive;
-    border: 0.5px solid black;
+    border: 1px solid rgba(132, 182, 235, 0.379);
     padding: 0px 200px 0px 200px;
+    margin: 0 auto;
+    text-align: center;
 }
 /*styling the logo here*/
 #logo{
     border-radius: 5px;
-    margin-top: -2%;
-    width: 70px;
+    /* margin-top: -2%; */
+    width: 25%;
 }
 /* Style the tab */
 .tab {
     margin-top: 2%;
     float: left;
-    border: 1px solid #ccc;
-    background-color: #f1f1f1;
+    /* border: 1px solid #ccc; */
+    border: 1px solid rgba(132, 182, 235, 0.379);
+    background-color: rgba(199, 212, 240, 0.879);
     width: 25%;
     height: 350px;
     box-shadow: 5px 10px 8px #aeaeae;
@@ -55,21 +65,21 @@ body{
     cursor: pointer;
     transition: 0.3s;
     font-size: 17px;
+    color: #4c0121;
 }
 /* Change background color of buttons on hover */
 .tab button:hover {
-    background-color: #ddd;
+    background-color: #87bbe8;
 }
 /* Create an active/current "tab button" class */
 .tab button.active {
-    background-color: #ccc;
+    background-color: #87bbe8;
 }
 /* Style the tab content */
 .tabcontent {
     margin-top: 2%;
     margin-left: 2%;
     float: left;
-    padding: 0px 12px;
     border: 0.5px solid #ccc;
     width: 68%;
     height: 87%;
@@ -89,19 +99,32 @@ body{
 ::-webkit-scrollbar-thumb:hover{
     background: #abaaaa;
 }
-
+#homePage{
+    display: inline-block;
+    position: absolute;
+    left: 90%;
+    top: 3%;
+    color: #a9d3f9;
+    text-decoration: none;
+    height: auto;
+    width: auto;
+    border: 0.5px solid #a9d3f9;
+    padding: 7px;
+}
 #tinyCalendar{
     float: left;
     width: 100%;
     margin-top: 10px;
     background-color: #dfe6e9;
-    height: 240px;
+    height: 230px;
     box-shadow: 5px 10px 8px #aeaeae;
 }
 
 #bigCalendar{
     width: 100%;
-    background-color: #dfe6e9;
+    /* background-color: #dfe6e9; */
+    /* background-color: white; */
+    background-color: rgb(248, 247, 247);
     height: 100%;
 }
 
@@ -111,7 +134,7 @@ body{
     text-align: center;
     width: 100%;
     height: 30%;
-    background-color: rgba(76, 144, 228, 0.73);
+    background-color: #87bbe8;
     color: #4c0121;
     padding: 30px 20px;
     box-sizing: border-box;
@@ -123,7 +146,7 @@ body{
     text-align: center;
     width: 100%;
     height: 10%;
-    background-color: rgba(76, 144, 228, 0.73);
+    background-color: #87bbe8;
     color: #4c0121;
     padding: 30px 20px;
     box-sizing: border-box;
@@ -163,12 +186,12 @@ h4{
 
 .datesOfMonth.big div{
     /* margin-bottom: 6px; */
-    width: 13.8%;
+    width: 14%;
     height: 40px;
-    margin: 0.1% 0.1% 0.1% 0.1%;
+    margin: 0.1%;
     text-align: center;
     transition: all 0.4s;
-    border: 0.5px solid black;
+    /* border: 0.5px solid black; */
     padding-top: 20px;
     padding-bottom: 3px;
 }
@@ -201,7 +224,10 @@ h4{
 #tinyMonth{
     font-size: 20px;
 }
-
+fieldset{
+    font-size: 20px;
+    color: #4c0121;
+}
 .previous, .next{
     display: flex;
     justify-content: center;
@@ -229,6 +255,7 @@ ul li {
     position: relative;
     padding: 12px 8px 12px 40px;
     list-style-type: none;
+    color: #4c0121;
     background: #eee;
     font-size: 18px;
     transition: 0.2s;
@@ -249,8 +276,8 @@ ul li:hover {
     background: #ddd;
 }
 ul li.checked {
-    color: rgb(134, 22, 245);
-    background-color: rgba(152, 144, 237, 0.66);
+    color: #67ace8;
+    background-color: rgba(199, 212, 240, 0.879);
     text-decoration: line-through;
 }
 
@@ -279,7 +306,7 @@ ul li.checked::before {
     color: white;
 }
 
-.header:after {
+.motto:after {
     content: "";
     display: table;
     clear: both;
@@ -295,19 +322,21 @@ input {
     height: 7%;
     font-size: 16px;
 }
-
+.inputbox{
+    display: inline-block;
+    width: 100%;
+}
 .addBtn {
     height: 7%;
     width: 20%;
-    background: #d9d9d9;
-    color: #555;
+    background: rgba(136, 181, 236, 0.523);
+    color: #4c0121;
     text-align: center;
-    align-items: center;
-    float: left;
-    font-size: 16px;
+    font-size: 30px;
     cursor: pointer;
     transition: 0.3s;
     border-radius: 0;
+    float: right;
 }
 
 .addBtn:hover {
@@ -315,7 +344,7 @@ input {
 }
 #progress {
     background: rgba(255, 255, 255, 0.708);
-    color: black;
+    color: #4c0121;
     width: 0%;
     height: 25px;
     margin: 0px;
@@ -327,35 +356,55 @@ input {
 #progressBar {
     height: 25px;
     width: 42.5%;
-    background: rgba(76, 144, 228, 0.139);
-    border: 1px solid black;
+    background: rgba(30, 119, 227, 0.577);
+    border: 1px solid rgba(223, 221, 221, 0.461);
     margin: 0 auto;
     margin-top: 14px;
-    display: flex;
+    display: block;
     justify-content: flex-start;
 }
-
+.calKey{
+    float: left;
+    margin-left: 10px;
+    
+}
 
 .PForm{
     background-color: #fcb5e08c;
+    /* border: .5px solid #fcb5e08c; */
 }
 
 .Research{
     background-color: #7adcd27e;
+    /* border: .5px solid #7adcd27e; */
+    /* border-color: #fcb5e08c; */
+
 }
 
 .Plan{
     background-color: #b679e882;
+    /* border: .5px solid #b679e882; */
+    /* border-color: #b679e882; */
+
 }
 
 .Action{
     background-color: #ee37a58e;
+    /* border: .5px solid #ee37a58e; */
+    /* border-color: #ee37a58e; */
+
 }
 
 .Doc{
     background-color: #19a09593;
+    /* border: .5px solid #19a09593; */
+    /* border-color: #19a09593; */
+
 }
 
 .PPT{
     background-color: #9234dea7;
+    /* border: .5px solid #9234dea7; */
+    /* border-color: #9234dea7; */
+
 }

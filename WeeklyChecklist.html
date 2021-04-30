@@ -11,7 +11,7 @@
         <!-- Bootstrap JS -->
         <!-- <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script> -->
         <!-- <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script> -->
-        <script src="bootstrap-5.0.0-beta2-dist/js/bootstrap.min.js"></script>
+        <!-- <script src="bootstrap-5.0.0-beta2-dist/js/bootstrap.min.js"></script> -->
 
         <!-- My JS -->
         <script src="Focus.js"></script>
@@ -25,15 +25,22 @@
         <title>Pomodoro App</title>
     </head>
     <body onload="whenLoad()">
-        <div id="MyClockDisplay" class = "clock"></div>
-        <div class = "header"><center><b>"Procrastination is the foundation of all disasters"</b></center></div>
-        <div id = "logo">
-            <img src = "Logo.png" width = "70" height = "70">
-        </div> 
-        <!--appearance of progress bar:-->
-        <div id = "progressBar">
-            <p id = "progress"></p>
+    <div>
+        <div class = "logo">
+            <div id = "logo">
+                <img src = "logov3.jpeg" width = "320px" height = "80px">
+            </div> 
         </div>
+        <div class = "header">
+            <div class = "motto"><center><b>"Procrastination is the foundation of all disasters"</b></center></div>
+            <div  id="MyClockDisplay" class = "clock"></div>
+            <!--appearance of progress bar:-->
+            <div id = "progressBar">
+                <p id = "progress"></p>
+            </div>
+        </div>
+        <a id = "homePage" href="homePage.html">Home Page</a>
+    </div>
         <div class="tab">
             <button class="tablinks" onclick="openFeature(event, 'weeklyChecklist')"id = "defaultOpen" ><b>Weekly Checklist</b></button>
             <button class="tablinks" onclick="openFeature(event, 'Calendar')"><b>Calendar</b></button>
@@ -63,15 +70,27 @@
                 <div class = "datesOfMonth tiny">
                 </div>
             </div>
+            <div id = "calKey">
+                <p class = "calKey" style="text-emphasis: bold;"><b>Calendar Key:</b></p>
+                <br>
+                <br>
+                <br>
+                <p class = "calKey" style="background-color:#fcb5e08c;">Proposal Form</p>
+                
+                <p class = "calKey" style="background-color:#7adcd27e;">Research</p>
+                <p class = "calKey" style="background-color:#b679e882">Plan</p>
+                <p class = "calKey" style="background-color:#ee37a58e;">Action</p>
+                <p class = "calKey" style="background-color:#19a09593;">Documentation</p>
+                <p class = "calKey" style="background-color:#9234dea7;">Presentation</p>
+            </div>
         </div>
-
         <div id="weeklyChecklist" class="tabcontent">
             <fieldset>
                 <legend>Weekly Checklist
                     <a href = "WeeklyChecklist.html"></a>
                     </legend>
                     <!--checklist area-->
-                    <div id="myDIV" class = "header">
+                    <div id="myDIV" class = "inputbox">
                         <input type="text" id="myInput" placeholder="Task...">
                         <span onclick="newElement()" class="addBtn">Add</span>
                       </div>
@@ -113,7 +132,7 @@
                     <div>Fri</div>
                     <div>Sat</div>
                 </div>
-                <div class = "datesOfMonth big">
+                    <div class = "datesOfMonth big">
                 </div>
             </div>
         </div>

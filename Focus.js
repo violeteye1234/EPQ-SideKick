@@ -15,7 +15,7 @@ function template() {
 function start_timer() {
   click_sound.play();
 
-  session_seconds = 5;
+  session_seconds = 59;
   session_minutes = session_minutes - 1;
 
   // Add the seconds and minutes to the page

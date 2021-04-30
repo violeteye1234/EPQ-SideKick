@@ -105,6 +105,7 @@ function showTime(){
   document.getElementById("MyClockDisplay").textContent  = time;
 
   setTimeout(showTime, 1000);
+  console.log("hi");
 }
 
 /*
@@ -113,6 +114,8 @@ function showTime(){
 function openFeature(evt, featureName) {
   var i, tabcontent, tablinks;
   var tinyCalendar = document.getElementById("tinyCalendar");
+  var calKey = document.getElementById("calKey");
+  var close = document.getElementsByClassName("close");
   tabcontent = document.getElementsByClassName("tabcontent");
   for (i = 0; i < tabcontent.length; i++) {
     tabcontent[i].style.display = "none";
@@ -126,12 +129,14 @@ function openFeature(evt, featureName) {
   //to delete tiny calendar when clicked on C.tab
   if (featureName == 'Calendar'){
     tinyCalendar.style.display = "none";
+    calKey.style.display = "block";
     for (i = 0; i<keys_values.length; i++){
       var values = keys_values[i].split("="); //get values by splitting via "="
     }
   }
   else{
     tinyCalendar.style.display = "block";
+    calKey.style.display = "none";
   }
   //send data to focus when clicked on focus tab
   if (featureName == 'Focus'){

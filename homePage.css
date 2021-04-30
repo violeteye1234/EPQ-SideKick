@@ -68,7 +68,7 @@ body{
     height: 100%;
     /* right: 90%; */
     background-image:
-    linear-gradient(to top, rgba(255, 255, 255, 0.803), rgba(46, 103, 172, 0.838)),
+    linear-gradient(to top, rgba(255, 255, 255, 0.803), rgba(3, 72, 157, 0.858)),
     url('headerImage.jpeg');
     background-size: cover;
     border: none;
@@ -81,7 +81,8 @@ body{
     text-align: center;
     top: 25%;
     font-size: 75px;
-    color: rgb(57, 55, 55);
+    /* color: rgb(57, 55, 55); */
+    color: rgb(0, 0, 0);
 }
 #epq{
     display: inline-block;
@@ -126,10 +127,10 @@ body{
     align-items: center;
     left: 47%;
     top: 73%;
-    color: rgb(162, 162, 162);
+    color: rgba(3, 72, 157, 0.858);
     font-family:cursive;
     text-emphasis: bold;
-    font-size: 70px;
+    font-size: 80px;
 }
 #aboutYourProject{
     color: #373D3F;
